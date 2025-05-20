@@ -71,6 +71,73 @@
 %\newpage
 
 \section*{Aufgabe 1}
+\subsection*{a) Volumina und affine Abbildungen}
+
+Wir betrachten die Punkte
+\[
+A := \vect{0\\0}, \quad
+B := \vect{2\\3}, \quad
+C := \vect{4\\-1}, \quad
+A' := \vect{-4\\-2}, \quad
+B' := \vect{8\\3}, \quad
+C' := \vect{6\\1}
+\in \RR^2.
+\]
+Gesucht ist eine affine Abbildung
+$F: \RR^2 \to \RR^2, x \mapsto M \cdot x + b$
+mit
+\[
+M = \legs{cc}{ M_{11} & M_{12} \\ M_{21} & M_{22} }
+\in \Mat(2,\RR) \qquad\text{und}\qquad b \in \RR,
+\]
+sodass $A' = F(A)$, $B' = F(B)$ und $C' = F(C)$.
+Zunächst gilt
+\[
+\vect{-4\\-2} = A' = F(A) = M \cdot \vect{0\\0} + b = b
+\qquad\imp\qquad
+b = \vect{-4\\-2}.
+\]
+Also gilt für $B'$:
+\[
+\vect{8\\3} = B' = F(B) = M \cdot \vect{2\\3} + \vect{-4\\-2}
+\qquad\imp\qquad
+M \cdot \vect{2\\3} = \vect{12\\5}.
+\]
+Daraus folgt
+$2 \cdot M_{11} + 3 \cdot M_{12} = 12$
+und
+$2 \cdot M_{21} + 3 \cdot M_{22} = 5$.
+Für $C'$ gilt:
+\[
+\vect{6\\1} = C' = F(C) = M \cdot \vect{4\\-1} + \vect{-4\\-2}
+\qquad\imp\qquad
+M \cdot \vect{4\\-1} = \vect{10\\3}.
+\]
+Daraus folgt
+$4 \cdot M_{11} - \cdot M_{12} = 10$
+und
+$4 \cdot M_{21} - \cdot M_{22} = 3$.
+Daraus ergeben sich zwei LGS, die wir mit dem Gaußverfahren lösen:
+\[
+\legs{cc}{2 & 3 \\ 4 & -1} \cdot \vect{M_{11} \\ M_{12}}= \vect{12 \\ 10}
+\qquad\imp\qquad
+\vect{M_{11} \\ M_{12}} = \vect{3 \\ 2}
+\]
+und
+\[
+\legs{cc}{2 & 3 \\ 4 & -1} \cdot \vect{M_{21} \\ M_{22}}= \vect{5 \\ 3}
+\qquad\imp\qquad
+\vect{M_{21} \\ M_{22}} = \vect{1 \\ 1}.
+\]
+Also ist 
+\[
+M = \legs{cc}{3 & 2 \\ 1 & 1}.
+\]
+
+
+
+
+\newpage
 \subsection*{b) Schiefer Zylinder}
 
 Sei \( X \in \mathbb{K}^{n-1} \), \( \hat{b} \in \mathbb{R}^{n-1} \) und \( h > 0 \). Wir definieren den schiefen Zylinder über \( X \) durch
@@ -82,7 +149,7 @@ Sei \( X \in \mathbb{K}^{n-1} \), \( \hat{b} \in \mathbb{R}^{n-1} \) und \( h > 
 \]
 
 \subsubsection*{Beispielskizze schiefer Zylinder}
-Wir verschieben $Z_2(D(1))$ um $e_1$ und erhalten $\hat{Z}_{2,e_1}(D(1))$:
+Wir verschieben $Z_2(D(1))$ mit $e_1$ und erhalten $\hat{Z}_{2,e_1}(D(1))$:
 \begin{center}
   \includegraphics[width=1\textwidth]{skizze.png}
 \end{center}
