@@ -1,0 +1,309 @@
+\documentclass{article}
+\usepackage{graphicx, amsmath, amsthm, amssymb, mathtools, enumerate, bbm}
+%\usepackage{virus}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+
+\title{Lineare Algebra II (LA) Übungsblatt 4}
+\author{Erik Achilles, Alexandra Dittmar, Artur Szeczinowski}
+\date{Mai 2025}
+
+
+
+
+\setlength{\parindent}{0pt}
+
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\CC}{\mathbb{C}}
+
+\newcommand{\imp}{\mathbb{\Rightarrow}}
+\newcommand{\equ}{\mathbb{\Leftrightarrow}}
+\newcommand{\eq}{\mathbb{\quad = \quad}}
+
+\DeclareMathOperator{\RRe}{Re}
+\DeclareMathOperator{\IIm}{Im}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\LH}{L}
+\DeclareMathOperator{\Bas}{Bas}
+\DeclareMathOperator{\Kern}{ker}
+\DeclareMathOperator{\Abb}{Abb}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\Konv}{Konv}
+\DeclareMathOperator{\Poly}{Poly}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+
+\newcommand{\limn}{\lim_{n \rightarrow \infty}}
+\newcommand{\toInf}[1]{\overset{#1 \rightarrow \infty}{\longrightarrow}}
+
+\newcommand{\movs}[2]{\overset{\text{\tiny $#1$}}{\quad #2 \quad}}
+\newcommand{\tovs}[2]{\overset{\text{\tiny (#1)}}{\quad #2 \quad}}
+\newcommand{\vect}[1]{\begin{pmatrix*}[c] #1 \end{pmatrix*}}
+\newcommand{\sect}[1]{\begin{psmallmatrix*}[c] #1 \end{psmallmatrix*}}
+\newcommand{\legs}[2]{\left(\begin{array}{#1}#2\end{array}\right)}
+
+
+%% https://texblog.net/latex-archive/maths/amsmath-matrix/
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+
+
+
+\begin{document}
+%\maketitle
+%\newpage
+\section*{Aufgabe 1}
+
+\subsection*{a)}
+Für eine beliebige Matrix
+$A \in \Mat(3,\ZZ)$
+gilt:
+
+\[
+\text{$A$ ist invertierbar und es gilt $A^{-1} \in \Mat(3,\ZZ)$}
+\qquad\equ\qquad
+\det(A) \in \{1,-1\}.
+\]
+\begin{proof}
+  ''$\Rightarrow$''  
+  Sei $A \in \Mat(3,\ZZ)$
+  und gelte
+  $A^{-1} \in \Mat(3,\ZZ)$.
+  Da alle Matrixeinträge
+  ganzzahlig sind, und
+  nach Spaltenentwicklungssatz von Laplace
+  sich die Determinante als Summe von
+  Produkten der Einträge darstellen lässt, ist auch
+  $\det(A), \det(A^{-1}) \in \ZZ$.
+  Außerdem ist
+  \[
+  \det(A) \cdot \det(A^{-1})
+  \eq
+  \det(A \cdot A^{-1})
+  \eq
+  \det(\mathbbm{1}_3)
+  \eq
+  1.
+  \]
+  Also sind
+  $\det(A)$ und $\det(A^{-1})$
+  ganzzahlige Teiler der $1$ und somit
+  $\det(A), \det(A^{-1}) \in \{1,-1\}$.
+
+  \bigbreak
+
+  ''$\Leftarrow$''
+  Sei $A \in \Mat(3,\ZZ)$
+  und gelte
+  $\det(A) \in \{1,-1\}$.
+  Nach \textit{Satz 6.7}
+  ist $A$ invertierbar.
+  Für die Inverse gilt zudem:
+  \[
+  A^{-1} = \frac{1}{\det(A)} \cdot B = \pm B
+  \]
+  wenn $B$ durch
+  $b_{ij} := (-1)^{i+j} \cdot \det(A_{ji}^{\text{Str}})$
+  gegeben ist. Somit ist jedes $a_{ij} = \pm b_{ij}$ durch ein Produkt
+  ganzer Zahlen gegeben und somit auch ganzzahlig:
+  $\det(A^{-1}) \in \Mat(3,\ZZ)$.
+\end{proof}
+
+\subsection*{b)}
+
+$\SL(3,\ZZ) := \{A \in \Mat(3,\ZZ) | \det(A) = 1\}$
+ist eine Untergruppe von
+$\GL(3,\RR)$
+
+\begin{proof}
+  Wir zeigen die 3 Eigenschaften separat.
+
+  \textbf{1.}
+  Es gilt
+  $\det(\mathbbm{1}_n) = 1$,
+  also ist
+  $\mathbbm{1}_n \in \SL(3,\ZZ)$.
+
+  \textbf{2.}
+  Seien
+  $A,B \in \SL(3,\ZZ)$,
+  so gilt
+  $\det(A \cdot B) = \det(A) \cdot \det(B) = 1 \cdot 1 = 1$,
+  also ist
+  $A \cdot B \in \SL(3,\ZZ)$.
+
+  \textbf{3.}
+  Sei
+  $A \in \SL(3,\ZZ)$,
+  also
+  $A \in \Mat(3,\ZZ)$ und $\det(A) = 1$.
+  Wie in \textit{a)} gezeigt wurde, gibt es ein
+  Inverses $A^{-1} \in \Mat(3,\ZZ)$ mit
+  \[
+    \det(A^{-1}) \eq \det(A^{-1}) \cdot 1 \eq
+    \det(A^{-1}) \cdot \det(A) \eq 1
+  \]
+  Also ist $A^{-1} \in \SL(3,\ZZ)$.
+\end{proof}
+
+
+\subsection*{c)}
+Wir bestimmen zunächst die Determinante von $M$
+mit der Regel von Sarrus:
+\[
+  \det(M) = (b \cdot 3 \cdot c) + (0 \cdot 1 \cdot 2)
+  + (1 \cdot 0 \cdot 2) - (2 \cdot 3 \cdot 1) - (2 \cdot 1
+  \cdot b) - (c \cdot 0 \cdot 0)
+  = 3bc - 6 - 2b = 1.
+\]
+Also ist
+$
+  3bc - 6 - 2b = 1$,
+  daraus folgt
+  $b \cdot (3c-2) = 7.
+$
+Daher kann $b$ nur Teiler von $7$ sein.
+Wir probieren systematisch:
+\begin{align*}
+  &\text{für $b = 1$:}   && 3c-2 = 7 &&\imp\qquad c = 3 \\
+  &\text{für $b = -1$:}   && 3c-2 = -7 &&\imp\qquad c = -\frac{5}{3} \notin \ZZ \\
+  &\text{für $b = 7$:}   && 3c-2 = 1 &&\imp\qquad c = 1 \\
+  &\text{für $b = -7$:}   && 3c-2 = -1 &&\imp\qquad c = \frac{1}{3} \notin \ZZ
+\end{align*}
+Also ist $(b,c) \in \{(1,3),(7,1)\}$.
+
+
+
+\newpage
+
+\section*{Aufgabe 2}
+
+\subsection*{a)}
+
+Die Basen $B$ und $B_0$ sind gleich orientiert genau
+dann, wenn $\det(B) > 0$
+
+\begin{proof}
+Die Basen sind nach Definition genau dann gleich orientiert,
+wenn $\det(T^B_{B_0}) > 0$. Wie in \textit{Bemerkung 5.109}
+gezeigt wurde, ''\textit{erhalten wir $T^B_{B_0}$
+einfach durch Nebeneinanderschreiben der Spaltenvektoren in B}'',
+also $T^B_{B_0} = B$.
+\end{proof}
+
+\subsection*{b)}
+Wir betrachten die Basen
+$B' := (b_1 , b_2 , b_3)$
+und
+$B'' := (b_5 , b_4 , b_1)$
+mit
+\[
+b_1 := \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}, \quad
+b_2 := \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad
+b_3 := \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}, \quad
+b_4 := \begin{pmatrix} 2 \\ 4 \\ 4 \end{pmatrix}, \quad
+b_5 := \begin{pmatrix} 0 \\ 2 \\ 4 \end{pmatrix} \in \mathbb{R}^3.
+\]
+Wir bestimmen nun die Determinante der Basen
+mit der Regel von Sarrus:
+\[
+\det(B')
+=
+(1 \cdot 1 \cdot 1) + (1 \cdot 1 \cdot 3)
+  + (0 \cdot 2 \cdot 3) - (3 \cdot 1 \cdot 0) - (0 \cdot 1
+  \cdot 1) - (1 \cdot 2 \cdot 1)
+= 2,
+\]
+\[
+\det(B'')
+=
+(0 \cdot 4 \cdot 3) + (2 \cdot 2 \cdot 4)
+  + (1 \cdot 2 \cdot 4) - (4 \cdot 4 \cdot 1) - (4 \cdot 2
+  \cdot 0) - (3 \cdot 2 \cdot 2)
+= -4.
+\]
+Da $\sign(\det(B')) \neq \sign(\det(B''))$,
+sind $B'$ und $B''$ verschieden orientiert.
+
+
+\subsection*{c)}
+Sei $\sigma \in S_n$.
+Dann sind die Basen $B := (b_1, \ldots, b_n)$
+und $B^{(\sigma)} := (b_{\sigma(1)}, \ldots, b_{\sigma(n)})$
+genau dann gleich orientiert wenn 
+$\sgn(\sigma) = 1$.
+
+\begin{proof}
+ Es gilt
+ $B^{(\sigma)} = T^B_{B^{(\sigma)}} \cdot B$,
+ Wobei sich
+ $T^B_{B^{(\sigma)}} = (t_{ij})$
+ folgendermaßen ergibt:
+ \[
+  b_i \eq 0 \cdot b^{(\sigma)}_1
+  + \ldots + 1 \cdot b^{(\sigma)}_{\sigma(i)}
+  + \ldots + 0 \cdot b^{(\sigma)}_n
+  \qquad\text{also}\qquad
+  t_{ij} = \begin{cases*}
+    1 & \text{falls $j = \sigma(i)$} \\
+    0 & \text{sonst}
+   \end{cases*}.
+ \]
+Wir bestimmen die Determinante mit der Leibnizformel:
+ $\det(T^B_{B^{(\sigma)}})
+ =
+ \sum_{\varsigma \in S_n} \sgn(\varsigma) \cdot t_{1,\varsigma(1)}
+ \cdot \ldots \cdot t_{n,\varsigma(n)}
+ $,
+ wobei für alle Summanden gilt
+ \[
+  \sgn(\varsigma) \cdot t_{1,\varsigma(1)}
+  \cdot \ldots \cdot t_{n,\varsigma(n)} \neq 0
+ \qquad\imp\qquad
+ \forall i \in \{1, \ldots, n\} : t_{i, \varsigma(i)} \neq 0
+ \qquad\imp\qquad
+ \varsigma = \sigma.
+ \]
+ Also ist
+ \[
+ \det(T^B_{B^{(\sigma)}})
+ \eq
+ \sgn(\sigma) \cdot t_{1,\sigma(1)}
+ \cdot \ldots \cdot t_{n,\sigma(n)}
+ \eq 
+ \sgn(\sigma) \cdot 1
+ \cdot \ldots \cdot 1
+ \eq
+ \sgn(\sigma).\]
+ Das bedeutet:
+ \[
+ \text{$B$ und $B^{(\sigma)}$ sind gleich orientiert}
+ \qquad\equ\qquad
+ \det(T^B_{B^{(\sigma)}}) > 0
+ \qquad\equ\qquad
+ \sgn(\sigma) = 1.
+ \]
+\end{proof}
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,241 @@
+\documentclass{article}
+\usepackage{graphicx, amsmath, amsthm, amssymb, mathtools, enumerate, bbm}
+%\usepackage{virus}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+
+\title{Lineare Algebra II (LA) Übungsblatt 5}
+\author{Erik Achilles, Alexandra Dittmar, Artur Szeczinowski}
+\date{Mai 2025}
+
+
+
+
+\setlength{\parindent}{0pt}
+
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\CC}{\mathbb{C}}
+
+\newcommand{\imp}{\mathbb{\Rightarrow}}
+\newcommand{\equ}{\mathbb{\Leftrightarrow}}
+\newcommand{\eq}{\mathbb{\quad = \quad}}
+
+\DeclareMathOperator{\RRe}{Re}
+\DeclareMathOperator{\IIm}{Im}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\LH}{L}
+\DeclareMathOperator{\Bas}{Bas}
+\DeclareMathOperator{\Kern}{ker}
+\DeclareMathOperator{\Abb}{Abb}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\Konv}{Konv}
+\DeclareMathOperator{\Poly}{Poly}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+
+\newcommand{\limn}{\lim_{n \rightarrow \infty}}
+\newcommand{\toInf}[1]{\overset{#1 \rightarrow \infty}{\longrightarrow}}
+
+\newcommand{\movs}[2]{\overset{\text{\tiny $#1$}}{\quad #2 \quad}}
+\newcommand{\tovs}[2]{\overset{\text{\tiny (#1)}}{\quad #2 \quad}}
+\newcommand{\vect}[1]{\begin{pmatrix*}[c] #1 \end{pmatrix*}}
+\newcommand{\sect}[1]{\begin{psmallmatrix*}[c] #1 \end{psmallmatrix*}}
+\newcommand{\legs}[2]{\left(\begin{array}{#1}#2\end{array}\right)}
+
+
+%% https://texblog.net/latex-archive/maths/amsmath-matrix/
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+
+
+
+\begin{document}
+%\maketitle
+%\newpage
+\section*{Aufgabe 1}
+
+\subsection*{a)}
+Seien $v,w : [0, 1] \to \RR^2$ stetig für jedes
+$s \in [0,1]$ sei $B(s) := (v(s), w(s))$ eine Basis
+von $\RR^2$. Dann sind $B(0) = (v(0), w(0))$ und
+$B(1) = (v(1), w(1))$ gleich orientiert.
+
+\begin{proof}
+  Die Funktionen $\l v_1, v_2, w_1, w_2$ sind stetig.
+  Also ist $\det(B_s) = v_1(s) \cdot w_2(s)
+  - v_2(s) \cdot w_1(s)$, nach (\textit{Analysis I Satz 5.6.})
+  ebenfalls stetig. 
+  Angenommen $B(0)$ und $B(1)$ wären verschieden orientiert.
+  Falls $\det(B(0)) > 0$, folgt dann $\det(B(1)) < 0$ und 
+  falls $\det(B(0)) < 0$, folgt $\det(B(1)) > 0$.
+  Also wäre $M := \sup(det(B([0,1]))) > 0$ und
+  $m :=\inf(det(B([0,1]))) < 0$
+  Nach Zwischenwewertsatz (\textit{5.9.}) gibt es zu
+  $0 \in [m,M]$ ein $s_0$ mit $(det(B(s_0))) = 0$.
+  Jedoch wäre dann $B(s_0)$ nicht l.u. und daher keine Basis.
+  Dies ist ein Wiederspruch also ist die Aussage bewiesen.
+\end{proof}
+
+
+
+\subsection*{b)}
+Für die stetigen Abbildungen
+$$
+V: [0,1] \to \RR^3, x \mapsto \vect{1 \\ 0 \\ 0}
+\qquad\text{und}\qquad
+W: [0,1] \to \RR^3, x \mapsto \vect{0 \\ \sin(\pi x) \\ \cos(\pi x)}
+$$
+gilt
+\begin{align*}
+  &\text{i)} \quad L(V(0), W(0)) = L(V (1), W(1)) = \{ x \in \RR^3 | x_2 = 0 \} =: E\\
+  &\text{ii)} \quad \text{Für alle $s \in [0,1]$ sind $V(s),W(s)$ l.u.}\\
+  &\text{iii)} \quad \text{Die Basen $(V(0),W(0))$ und $(V(1),W(1))$ von $E$ sind verschieden orientiert.}
+\end{align*}
+
+
+\begin{proof}
+  Da $\sin,\cos$ und konstante Funktionen stetig sind,
+  sind auch $V$ und $W$ stetig, wir überprüfen die drei Bedingungen.
+  Zu  \textit{i)}:
+  Es ist
+  $$
+  L(V(0),W(0)) = L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ \sin(0) \\ \cos(0)}\right)
+  = L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ 0 \\ 1}\right)
+  = \{ x \in \RR^3 | x_2 = 0 \} = E
+  $$
+  und
+  $$
+  L(V(1),W(1)) =  L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ \sin(1) \\ \cos(1)}\right)
+  = L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ 0 \\ -1}\right)
+  = \{ x \in \RR^3 | x_2 = 0 \} = E.
+  $$
+
+  Zu \textit{ii)}:
+  Da für alle $s \in [0,1]$ gilt $V(s)_1 = 1$ und
+  $W(s)_1 = 0$, gibt es nur die triviale Linearkombination der Null.
+  D.h. $V(s),W(s)$ sind linear unabhängig.
+
+  Zu \textit{iii)}:
+  Da $(V(0), W(0)) = (V (1), -W(1))$ sind die Basen nach \textit{Korollar 6.52 b)}
+  verschieden orientiert.
+\end{proof}
+
+
+\newpage
+
+
+\section*{Aufgabe 2}
+
+Sei $(e_1, e_2, e_3)$ die Standardbasis von $\RR^3$ und $v \in \RR^3 \setminus L(e_1, e_3)$.
+Wir betrachten für alle $x \in \RR^3$ die parallelen
+Geraden $G(x) := x+L(v)$. Weiter sei $E := -e_2 + L(e_1, e_3)$.
+
+\subsection*{a)}
+Die Menge $G(x) \cap E$ besteht aus genau einem Element $p(x)$ und
+die Abbildung $p : \RR^3 \to \RR^3, x \mapsto p(x)$ ist affin.
+
+\begin{proof}
+  Es ist $$G(x) = x + L(v) = \{ x + \lambda v  \;|\;  \lambda \in \RR \}= \{ x - \lambda v  \;|\;  \lambda \in \RR \}$$
+  und $$E = -e_2 + L(e_1, e_3) = \{y \in \RR^3  \;|\; \exists\mu_1, \mu_2 \in \RR: y = -e_2 + \mu_1 e_1 + \mu_2 e_3\}.$$
+  Für den Schnitt gilt also:
+\begin{align*}
+    G(x) \cap E
+    &\eq \{x - \lambda v  \;|\; \exists \lambda, \mu_1, \mu_2 \in \RR: x - \lambda v = -e_2 + \mu_1 e_1 + \mu_2 e_3\} \\
+    &\eq \{x - \lambda v  \;|\; \exists \lambda, \mu_1, \mu_2 \in \RR: x + e_2 = \lambda v + \mu_1 e_1 + \mu_2 e_3\}
+\end{align*}
+
+Da $v \notin L(e_1,e_3)$ sind $e_1, e_3, v$ linear unabhängig.
+In der Linearkombination $x + e_2 = \lambda v + \mu_1 e_1 + \mu_2 e_3$
+sind daher $\lambda, \mu_1, \mu_2$ eindeutig bestimmt.
+Insbesondere ist dann $x - \lambda v$ eindeutig und
+$G(x) \cap E$ besteht nur aus einem Element.
+
+\bigbreak
+Da $e_1, e_3, v$ linear unabhängig sind, ist $B_E := (e_1, e_3, v)$
+eine Basis des $\RR^3$.
+Wir zeigen nun die Affinität der Abbildung $p$ in dem wir zeigen,
+dass die Abbildungsvorschrift:
+\[
+p(x) \;:=\; \left((T^{B_E}_{B_0}) \cdot
+\begin{psmallmatrix*}[c]
+  \mathbbm{1}_2 & 0 \\ 0 & 0
+\end{psmallmatrix*}
+\cdot (T^{B_E}_{B_0})^{-1}\right) \cdot x - \left(v\cdot \tfrac{-1}{v_2}\right)
+\eq \begin{pmatrix*}
+  1 & -\frac{v_1}{v_2} & 0 \\
+  0 & 0 & 0 \\
+  0 & -\frac{v_3}{v_2} & 1
+\end{pmatrix*}
+\cdot x - \vect{ -\frac{v_1}{v_2} \\ -1 \\ -\frac{v_3}{v_2}}
+\]
+die gegebene Voraussetzung erfüllt, also $p(x) \in G(x) \cap E$.
+Es gilt:
+\[
+p(x) = \vect{x_1 - \frac{v_1}{v_2}x_2 -\frac{v_1}{v_2}\\  -1  \\  x_3-\frac{v_3}{v_2} x_2-\frac{v_3}{v_2}} =
+\vect{x_1 - \frac{x_2-1}{v_2} v_1\\  x_2 - \frac{x_2-1}{v_2} v_2  \\  x_3 - \frac{x_2-1}{v_2} v_3} =
+x - \left(\frac{x_2-1}{v_2}\right) \cdot v \quad\in G(x)
+\]
+und
+\[
+p(x) = \vect{x_1 - \frac{v_1}{v_2}x_2 -\frac{v_1}{v_2}\\  -1  \\  x_3-\frac{v_3}{v_2} x_2-\frac{v_3}{v_2}} =
+-e_2 + \left(x_1 - \frac{v_1}{v_2}x_2 -\frac{v_1}{v_2}\right) \cdot e_1 + \left(x_3-\frac{v_3}{v_2} x_2-\frac{v_3}{v_2}\right) \cdot e_3
+\quad\in E
+\]
+Also lässt sich $p(x)$ in der Form $A \cdot x + b$ schreiben.
+\end{proof}
+
+
+\newpage
+
+\subsection*{b)}
+\vfill
+
+
+\subsection*{c)}
+Sind $G,G' \subset \RR^3$ parallele Geraden
+und $F: \RR^3 \to \RR^3$ affin,
+so sind $F(G)$ und $F(G')$
+Punkte oder parallele Geraden
+
+
+\begin{proof}
+  Sei $U$ der UVR zu $G,G'$.
+  Für $g \in G$ und $g' \in G'$ gilt nach Definition
+  $G = U + g$ und $G' = U + g'$.
+  Außerdem ist $F(x) = \varphi(x) + b$ mit der linearen Abbildung
+  $\varphi$ und $b \in \RR$.
+  Also ist
+  \[
+    F(G) \eq F(U + g) \eq \varphi(U + g) + b
+    \eq \varphi(U) + \varphi(g) + b
+  \]
+  und
+  \[
+    F(G') \eq F(U + g') \eq \varphi(U + g') + b'
+    \eq \varphi(U) + \varphi(g') + b'.
+  \]
+  Aufgrund der Linearität von $\varphi$ ist
+  $\varphi(U)$ wieder ein UVR.
+  Außerdem sind
+  $(\varphi(g) + b), (\varphi(g) + b) \in \RR$.
+  Also sind alle Bedingungen für Parallelität erfüllt.
+\end{proof}
+
+
+\end{document}

@@ -1,0 +1,209 @@
+\documentclass{article}
+\usepackage{graphicx, amsmath, amsthm, amssymb, mathtools, enumerate, bbm}
+%\usepackage{virus}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+
+\title{Lineare Algebra II (LA) Übungsblatt 2}
+\author{Erik Achilles, Alexandra Dittmar, Artur Szeczinowski}
+\date{April 2025}
+
+
+
+
+\setlength{\parindent}{0pt}
+
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\CC}{\mathbb{C}}
+
+\newcommand{\imp}{\mathbb{\Rightarrow}}
+\newcommand{\equ}{\mathbb{\Leftrightarrow}}
+\newcommand{\eq}{\mathbb{\quad = \quad}}
+
+\DeclareMathOperator{\RRe}{Re}
+\DeclareMathOperator{\IIm}{Im}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\LH}{L}
+\DeclareMathOperator{\Bas}{Bas}
+\DeclareMathOperator{\Kern}{ker}
+\DeclareMathOperator{\Abb}{Abb}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\Konv}{Konv}
+\DeclareMathOperator{\Poly}{Poly}
+
+\newcommand{\limn}{\lim_{n \rightarrow \infty}}
+\newcommand{\toInf}[1]{\overset{#1 \rightarrow \infty}{\longrightarrow}}
+
+\newcommand{\movs}[2]{\overset{\text{\tiny $#1$}}{\quad #2 \quad}}
+\newcommand{\tovs}[2]{\overset{\text{\tiny (#1)}}{\quad #2 \quad}}
+\newcommand{\vect}[1]{\begin{pmatrix*}[c] #1 \end{pmatrix*}}
+\newcommand{\sect}[1]{\begin{psmallmatrix*}[c] #1 \end{psmallmatrix*}}
+\newcommand{\legs}[2]{\left(\begin{array}{#1}#2\end{array}\right)}
+
+
+%% https://texblog.net/latex-archive/maths/amsmath-matrix/
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+
+
+
+\begin{document}
+%\maketitle
+\section*{Aufgabe 2}
+
+Zu
+$A \in \Mat(m, K)$,
+$C \in \Mat(n, K)$
+definiere die Blockmatrix
+$
+B(A, C) := 
+\begin{pmatrix*}
+    A & 0 \\
+    0 & C \\
+\end{pmatrix*}
+\in \Mat(m + n, K).
+$
+Wir zeigen:
+$ \quad \det(B(A, C)) = \det(A) \cdot \det(C)$.
+
+
+\subsection*{a)}
+Sei
+$\det(C) = 0$.
+Nutze
+\textit{(D6)}, \textit{(D7)}
+und erhalte
+$C'$
+in oberer Dreiecksform mit
+$\det(C')= \pm \det(C)= 0$. 
+
+Aus
+\textit{Satz 6.7}
+folgt direkt
+
+\[
+\det(C') = 0
+\tovs{6.7}{\equ}
+\rg(C') = \tilde{\rg}(C') \neq n
+\]
+
+Da
+$C'$
+in oberer Dreiecksform steht
+aber nicht vollen Rang hat,
+muss mindestens die letzte Zeile null sein.
+Also ist
+
+\[
+C'_{nn} = 0
+\movs{}{\equ}
+B(A, C')_{m+n,m+n} = 0
+\tovs{D5}{\imp}
+\det(B(A, C)) = \pm \det(B(A, C')) = 0.
+\]
+
+
+\subsection*{b)}
+Sei nun
+$\det(C) \neq 0$.
+Wir definieren
+$\widetilde{\det} : \Mat(m, K) \to K, \; A \mapsto \det(B(A, C)) \cdot \det(C)^{-1}$.
+
+\bigbreak
+(D1) $\widetilde{\det}$ ist zeilenlinear, denn für alle
+$A \in \Mat(m, K)$
+mit Zeilen
+$\tilde{a}_1, \dots, \tilde{a}_m, \tilde{a}_i', \tilde{a}_i'' \in (K^m)^t$
+und
+$\lambda \in K$
+gilt
+
+\begin{align*}
+    \widetilde{\det}\vect{\tilde{a}_1 \\ \vdots \\  \lambda(\tilde{a}_i'+\tilde{a}_i'') \\ \vdots \\ \tilde{a_m}}
+    \eq 
+    &\det\legs{cc}{\tilde{a}_1\\ \vdots \\  \lambda(\tilde{a}_i'+\tilde{a}_i'') & 0 \\ \vdots \\ \tilde{a_m} \\ 0 & C} \cdot \det(C)^{-1} \\
+    \eq 
+    &\lambda \cdot
+    \det\legs{cc}{\tilde{a}_1\\ \vdots \\  \tilde{a}_i' & 0 \\ \vdots \\ \tilde{a_m} \\ 0 & C} 
+    \cdot \det(C)^{-1}
+    +
+    \lambda \cdot
+    \det\legs{cc}{\tilde{a}_1\\ \vdots \\  \tilde{a}_i'' & 0 \\ \vdots \\ \tilde{a_m} \\ 0 & C}
+    \cdot \det(C)^{-1}\\
+    \eq 
+    &\lambda \cdot
+    \widetilde{\det}\vect{\tilde{a}_1 \\ \vdots \\  \tilde{a}_i' \\ \vdots \\ \tilde{a_m}}+
+    \lambda \cdot
+    \widetilde{\det}\vect{\tilde{a}_1 \\ \vdots \\  \tilde{a}_i'' \\ \vdots \\ \tilde{a_m}}
+\end{align*}
+
+(D2) $\widetilde{\det}$ ist alternierend, denn falls
+$\tilde{a}_i = \tilde{a}_j$,
+$i \neq j$,
+so ist auch
+$\tilde{b}_i = (\tilde{a}_i \; 0) = (\tilde{a}_j \; 0) =\tilde{b}_j$
+also
+$\det(B(A,C)) = 0$
+und somit
+$\widetilde{\det}(A) = 0 \cdot \det(C)^{-1} = 0$.
+
+\bigbreak
+(D3) $\widetilde{\det}$ ist normiert, denn für
+$B^{(m)} := B(\mathbbm{1}_m, C)$
+streiche rekursiv die erste Zeile und Spalte.
+Wir zeigen nun,
+dass die Determinante bei dieser Striechung
+erhalten bleibt. Dazu verwenden wir den
+Spaltenentwicklungssatz von Laplace:
+
+\begin{align*}
+  \det(B^{(m)})
+  &\eq
+  \sum_{i=1}^{m+n} (-1)^{i+1} \cdot b_{i1} \cdot \det(B^{(m)\;\text{Str}}_{i1})\\
+  &\eq
+  (-1)^{1+1} \cdot b_{11} \cdot \det(B^{(m)\;\text{Str}}_{11}) + \sum_{i=2}^{m+n} (-1)^{i+1} \cdot b_{i1} \cdot \det(B^{(m)\;\text{Str}}_{i1}) \\
+  &\eq
+  1 \cdot 1 \cdot \det(B^{(m)\;\text{Str}}_{11}) + \sum_{i=2}^{m+n} (-1)^{i+1} \cdot 0 \cdot \det(B^{(m)\;\text{Str}}_{i1})\\
+  &\eq
+  \det(B^{(m)\;\text{Str}}_{11}) \quad = \quad \det(B^{(m-1)})
+\end{align*}
+
+
+
+
+Wir erhalten schließlich
+$B^{(0)} = C$.
+Also ist
+$$\det(B^{(m)}) \cdot \det(C)^{-1}
+\eq \det(B^{(0)}) \cdot \det(C)^{-1}
+\eq \det(C) \cdot \det(C)^{-1}
+\eq 1.$$
+Da
+$\widetilde{\det}$
+\textit{(D1), (D2), (D3)}
+erfüllt und die Determinantenabbildung eindeutig ist muss
+$\widetilde{\det} = \det$ sein.
+also ist
+\begin{align*}
+  & \det(A) = \widetilde{\det}(A) = \det(B(A, C)) \cdot \det(C)^{-1} \\
+  \movs{}{\equ}
+  & \det(A) \cdot \det(C) = \det(B(A, C))
+\end{align*}
+
+
+
+\end{document}
