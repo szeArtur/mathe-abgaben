@@ -132,36 +132,43 @@ ist eine Untergruppe von
 $\GL(3,\RR)$
 
 \begin{proof}
-  Wir zeigen die 3 Eigenschaften separat.
+Für ein beliebiges $A \in \SL(3,\ZZ)$ also $A \in \Mat(3,\ZZ) \subset \Mat(3,\RR)$
+mit $\det(A) = 1 \neq 0$ folgt direkt $A \in \GL(3,\RR)$.
+Also ist $\SL(3,\ZZ) \subseteq \GL(3,\RR)$.
 
-  \textbf{1.}
-  Es gilt
-  $\det(\mathbbm{1}_n) = 1$,
-  also ist
-  $\mathbbm{1}_n \in \SL(3,\ZZ)$.
+Nun zeigen wir die 3 Eigenschaften des UVR separat.
 
-  \textbf{2.}
-  Seien
-  $A,B \in \SL(3,\ZZ)$,
-  so gilt
-  $\det(A \cdot B) = \det(A) \cdot \det(B) = 1 \cdot 1 = 1$,
-  also ist
-  $A \cdot B \in \SL(3,\ZZ)$.
+\bigbreak
+\textbf{1.}
+Es gilt
+$\det(\mathbbm{1}_n) = 1$,
+also ist
+$\mathbbm{1}_n \in \SL(3,\ZZ)$.
 
-  \textbf{3.}
-  Sei
-  $A \in \SL(3,\ZZ)$,
-  also
-  $A \in \Mat(3,\ZZ)$ und $\det(A) = 1$.
-  Wie in \textit{a)} gezeigt wurde, gibt es ein
-  Inverses $A^{-1} \in \Mat(3,\ZZ)$ mit
-  \[
-    \det(A^{-1}) \eq \det(A^{-1}) \cdot 1 \eq
-    \det(A^{-1}) \cdot \det(A) \eq 1
-  \]
-  Also ist $A^{-1} \in \SL(3,\ZZ)$.
+\bigbreak
+\textbf{2.}
+Seien
+$A,B \in \SL(3,\ZZ)$,
+so gilt
+$\det(A \cdot B) = \det(A) \cdot \det(B) = 1 \cdot 1 = 1$,
+also ist
+$A \cdot B \in \SL(3,\ZZ)$.
+
+\bigbreak
+\textbf{3.}
+Sei
+$A \in \SL(3,\ZZ)$,
+also
+$A \in \Mat(3,\ZZ)$ und $\det(A) = 1$.
+Wie in \textit{a)} gezeigt wurde, gibt es ein
+Inverses $A^{-1} \in \Mat(3,\ZZ)$ mit
+\[
+  \det(A^{-1}) \eq \det(A^{-1}) \cdot 1 \eq
+  \det(A^{-1}) \cdot \det(A) \eq 1
+\]
+Also ist $A^{-1} \in \SL(3,\ZZ)$.
 \end{proof}
-
+\newpage
 
 \subsection*{c)}
 Wir bestimmen zunächst die Determinante von $M$
@@ -245,20 +252,18 @@ sind $B'$ und $B''$ verschieden orientiert.
 \subsection*{c)}
 Sei $\sigma \in S_n$.
 Dann sind die Basen $B := (b_1, \ldots, b_n)$
-und $B^{(\sigma)} := (b_{\sigma(1)}, \ldots, b_{\sigma(n)})$
+und $B(\sigma) := (b_{\sigma(1)}, \ldots, b_{\sigma(n)})$
 genau dann gleich orientiert wenn 
 $\sgn(\sigma) = 1$.
 
 \begin{proof}
  Es gilt
- $B^{(\sigma)} = T^B_{B^{(\sigma)}} \cdot B$,
+ $B(\sigma) = T^B_{B(\sigma)} \cdot B$,
  Wobei sich
- $T^B_{B^{(\sigma)}} = (t_{ij})$
+ $T^B_{B(\sigma)} = (t_{ij})$
  folgendermaßen ergibt:
  \[
-  b_i \eq 0 \cdot b^{(\sigma)}_1
-  + \ldots + 1 \cdot b^{(\sigma)}_{\sigma(i)}
-  + \ldots + 0 \cdot b^{(\sigma)}_n
+  b_j \eq \sum_{i=1}^{n} t_{ij} b_{\sigma(i)}
   \qquad\text{also}\qquad
   t_{ij} = \begin{cases*}
     1 & \text{falls $j = \sigma(i)$} \\
@@ -266,15 +271,14 @@ $\sgn(\sigma) = 1$.
    \end{cases*}.
  \]
 Wir bestimmen die Determinante mit der Leibnizformel:
- $\det(T^B_{B^{(\sigma)}})
- =
- \sum_{\varsigma \in S_n} \sgn(\varsigma) \cdot t_{1,\varsigma(1)}
- \cdot \ldots \cdot t_{n,\varsigma(n)}
- $,
- wobei für alle Summanden gilt
  \[
-  \sgn(\varsigma) \cdot t_{1,\varsigma(1)}
-  \cdot \ldots \cdot t_{n,\varsigma(n)} \neq 0
+ \det(T^B_{B(\sigma)})
+ =
+ \sum_{\varsigma \in S_n} \sgn(\varsigma) \cdot \prod_{i = 1}^{n} t_{i,\varsigma(i)},
+ \]
+ wobei für alle Summanden ungleich null gilt
+ \[
+  \sgn(\varsigma) \cdot \prod_{i = 1}^{n} t_{i,\varsigma(i)} \neq 0
  \qquad\imp\qquad
  \forall i \in \{1, \ldots, n\} : t_{i, \varsigma(i)} \neq 0
  \qquad\imp\qquad
@@ -284,11 +288,9 @@ Wir bestimmen die Determinante mit der Leibnizformel:
  \[
  \det(T^B_{B^{(\sigma)}})
  \eq
- \sgn(\sigma) \cdot t_{1,\sigma(1)}
- \cdot \ldots \cdot t_{n,\sigma(n)}
+ \sgn(\sigma) \cdot \prod_{i = 1}^{n} t_{i,\sigma(i)}
  \eq 
- \sgn(\sigma) \cdot 1
- \cdot \ldots \cdot 1
+ \sgn(\sigma) \cdot \prod_{i = 1}^{n} 1
  \eq
  \sgn(\sigma).\]
  Das bedeutet:
