@@ -83,6 +83,9 @@ B' := \vect{8\\3}, \quad
 C' := \vect{6\\1}
 \in \RR^2.
 \]
+und die Dreiecke $\Delta$ mit den Eckpunkten
+$A,B,C$ und $\Delta'$ mit den Eckpunkten
+$A',B',C'$.
 Gesucht ist eine affine Abbildung
 $F: \RR^2 \to \RR^2, x \mapsto M \cdot x + b$
 mit
@@ -132,6 +135,11 @@ und
 Also ist 
 \[
 M = \legs{cc}{3 & 2 \\ 1 & 1}.
+\]
+Nun gilt $\Delta' = F(\Delta)$ und daher
+\[
+\vol_2(\Delta') = \vol_2(F(\Delta)) = |\det(M)| \cdot \vol_2(\Delta)
+= |(3 \cdot 1 - 2 \cdot 1)| \cdot \vol_2(\Delta) = \vol_2(\Delta).
 \]
 
 
