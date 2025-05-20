@@ -69,6 +69,77 @@
 \begin{document}
 %\maketitle
 %\newpage
+
+\section*{Aufgabe 1}
+\subsection*{a)}
+
+Sei \( X \in \mathbb{K}^{n-1} \), \( \hat{b} \in \mathbb{R}^{n-1} \) und \( h > 0 \). Wir definieren den schiefen Zylinder über \( X \) durch
+
+\[
+\hat{Z}_{\hat{b},h}(X) := \left\{ 
+\left( \hat{x} + \frac{s}{h} \hat{b}, s \right) \; \middle| \; \hat{x} \in X, \; s \in [0, h] 
+\right\}.
+\]
+Es ist $\operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = h \cdot \operatorname{vol}_{n-1}(X)$.
+
+
+\begin{proof}
+  Der verallgemeinerte Zylinder über \( X \) ist definiert durch
+  \[
+  Z_h(X) := X \times [0, h] \subset \mathbb{R}^{n-1} \times \mathbb{R}.
+  \]
+  
+  Wir betrachten dann die affine Abbildung
+  \[
+  G : \mathbb{R}^n \rightarrow \mathbb{R}^n, \quad G \begin{pmatrix} \hat{x} \\ s \end{pmatrix} = \begin{pmatrix} \hat{x} + \frac{s}{h} \hat{b} \\ s \end{pmatrix}.
+  \]
+  
+  Diese Abbildung ist affin, da sie die Form
+  \[
+  F \begin{pmatrix} \hat{x} \\ s \end{pmatrix} = A \cdot \begin{pmatrix} \hat{x} \\ s \end{pmatrix} + b
+  \quad \text{mit } b = 0
+  \]
+  hat.
+  Die Matrixdarstellung lautet dann:
+  \[
+  A := \begin{pmatrix} 
+  I_{n-1} & \frac{1}{h} \hat{b} \\
+  0 & 1 
+  \end{pmatrix},
+  \]
+  denn es gilt:
+  \[
+  G(x) = A \cdot x = 
+  \begin{pmatrix} 
+  I_{n-1} & \frac{1}{h} \hat{b} \\
+  0 & 1 
+  \end{pmatrix}
+  \begin{pmatrix} \hat{x} \\ s \end{pmatrix} = 
+  \begin{pmatrix} \hat{x} + \frac{s}{h} \hat{b} \\ s \end{pmatrix}.
+  \]
+  
+  Wir wollen nun zeigen, dass
+  \[
+  \operatorname{vol}_n \left( Z_{\hat{b}, h}(X) \right) = h \cdot \operatorname{vol}_{n-1}(X).
+  \]
+  
+  Wir berechnen die Determinante der Matrix \( A \):
+  \[
+  \det(A) = \det \begin{pmatrix} I_{n-1} & \frac{1}{h} \hat{b} \\ 0 & 1 \end{pmatrix} 
+  = \det(I_{n-1}) \cdot 1 - 0 \cdot \frac{1}{h} \hat{b} = 1.
+  \]
+  
+  Da \( G \) eine affine Abbildung mit \( \det(G) = 1 \) ist, bleibt das Volumen beim Übergang erhalten.
+  Nach \textit{Korollar 6.107} gilt daher wir:
+  \[
+  \operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = |\det(G)| \cdot \operatorname{vol}_n \left( Z_h(X) \right)
+  =  \operatorname{vol}_n \left( Z_h(X) \right) = h \cdot \operatorname{vol}_{n-1}(X).
+  \]
+  
+\end{proof}
+
+\newpage
+
 \section*{Aufgabe 2}
 
 \subsection*{a)}
@@ -112,5 +183,9 @@ mit einem Schalenanteil von über $\frac{999999}{1000000}$:
   \equ\qquad &n \geq \log_{\frac{19}{20}}\left(\frac{1}{1000000}\right) \approx 269.34 \\
   \imp \qquad & n = \lceil 269.34 \rceil = 270.
 \end{align*}
+
+
+
+
 
 \end{document}
