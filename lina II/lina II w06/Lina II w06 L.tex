@@ -6,7 +6,7 @@
 \usepackage[ngerman]{babel}
 
 
-\title{Lineare Algebra II (LA) Übungsblatt 5}
+\title{Lineare Algebra II (LA) Übungsblatt 6}
 \author{Erik Achilles, Alexandra Dittmar, Artur Szeczinowski}
 \date{Mai 2025}
 
@@ -71,7 +71,7 @@
 %\newpage
 
 \section*{Aufgabe 1}
-\subsection*{a)}
+\subsection*{b) Schiefer Zylinder}
 
 Sei \( X \in \mathbb{K}^{n-1} \), \( \hat{b} \in \mathbb{R}^{n-1} \) und \( h > 0 \). Wir definieren den schiefen Zylinder über \( X \) durch
 
@@ -80,8 +80,19 @@ Sei \( X \in \mathbb{K}^{n-1} \), \( \hat{b} \in \mathbb{R}^{n-1} \) und \( h > 
 \left( \hat{x} + \frac{s}{h} \hat{b}, s \right) \; \middle| \; \hat{x} \in X, \; s \in [0, h] 
 \right\}.
 \]
-Es ist $\operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = h \cdot \operatorname{vol}_{n-1}(X)$.
 
+\subsubsection*{Beispielskizze schiefer Zylinder}
+Wir verschieben $Z_2(D(1))$ um $e_1$ und erhalten $\hat{Z}_{2,e_1}(D(1))$:
+\begin{center}
+  \includegraphics[width=1\textwidth]{skizze.png}
+\end{center}
+
+
+\newpage
+
+\subsubsection*{Volumen des schiefen Zylinders}
+
+Es ist $\operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = h \cdot \operatorname{vol}_{n-1}(X)$.
 
 \begin{proof}
   Der verallgemeinerte Zylinder über \( X \) ist definiert durch
@@ -91,25 +102,21 @@ Es ist $\operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = h \cdot \o
   
   Wir betrachten dann die affine Abbildung
   \[
-  G : \mathbb{R}^n \rightarrow \mathbb{R}^n, \quad G \begin{pmatrix} \hat{x} \\ s \end{pmatrix} = \begin{pmatrix} \hat{x} + \frac{s}{h} \hat{b} \\ s \end{pmatrix}.
+  G : Z_h(X) \rightarrow \mathbb{R}^n, \quad \begin{pmatrix} \hat{x} \\ s \end{pmatrix} \mapsto \begin{pmatrix} \hat{x} + \frac{s}{h} \hat{b} \\ s \end{pmatrix}.
   \]
   
   Diese Abbildung ist affin, da sie die Form
   \[
-  F \begin{pmatrix} \hat{x} \\ s \end{pmatrix} = A \cdot \begin{pmatrix} \hat{x} \\ s \end{pmatrix} + b
+  G(x) = A \cdot x + b
   \quad \text{mit } b = 0
-  \]
-  hat.
-  Die Matrixdarstellung lautet dann:
-  \[
-  A := \begin{pmatrix} 
+  \quad \text{und }  A := \begin{pmatrix} 
   I_{n-1} & \frac{1}{h} \hat{b} \\
   0 & 1 
   \end{pmatrix},
   \]
-  denn es gilt:
+  hat und es gilt:
   \[
-  G(x) = A \cdot x = 
+  G(x) = 
   \begin{pmatrix} 
   I_{n-1} & \frac{1}{h} \hat{b} \\
   0 & 1 
@@ -120,7 +127,7 @@ Es ist $\operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = h \cdot \o
   
   Wir wollen nun zeigen, dass
   \[
-  \operatorname{vol}_n \left( Z_{\hat{b}, h}(X) \right) = h \cdot \operatorname{vol}_{n-1}(X).
+  \operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = h \cdot \operatorname{vol}_{n-1}(X).
   \]
   
   Wir berechnen die Determinante der Matrix \( A \):
@@ -130,13 +137,15 @@ Es ist $\operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = h \cdot \o
   \]
   
   Da \( G \) eine affine Abbildung mit \( \det(G) = 1 \) ist, bleibt das Volumen beim Übergang erhalten.
-  Nach \textit{Korollar 6.107} gilt daher wir:
+  Nach \textit{Korollar 6.107} gilt daher:
   \[
   \operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = |\det(G)| \cdot \operatorname{vol}_n \left( Z_h(X) \right)
   =  \operatorname{vol}_n \left( Z_h(X) \right) = h \cdot \operatorname{vol}_{n-1}(X).
+  \qedhere
   \]
   
 \end{proof}
+
 
 \newpage
 
