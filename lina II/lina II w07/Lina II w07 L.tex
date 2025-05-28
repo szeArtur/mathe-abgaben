@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{graphicx, amsmath, amsthm, amssymb, mathtools, enumerate, bbm}
+\usepackage{stmaryrd}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
@@ -67,101 +68,107 @@
 %\maketitle
 %\newpage
 
-\section*{Aufgabe 1}
+\section*{Aufgabe 2}
 \subsection*{a)}
+Wir berechnen für $\alpha, \beta \in \RR$ das Produkt:
 
 \[
-  \tilde{f} := K[X]
+  \sum_{j=0}^{\infty} \frac{\alpha^j}{j!} X^j \cdot
+  \sum_{j=0}^{\infty} \frac{\beta^j}{j!} X^j
+\]
+
+Wenn $a_j = \frac{\alpha^j}{j!}$ und $b_j = \frac{\beta^j}{j!}$, dann ist
+das Produkt
+
+\[
+  f \cdot g = \sum_{k=0}^{\infty} c_k X^k
+\]
+
+mit den Koeffizienten
+
+\[
+  \begin{aligned}
+    c_k & = \sum_{i=0}^{k} a_i b_{k-i} = \sum_{i=0}^{k} \frac{\alpha^i}{i!} \cdot \frac{\beta^{k-i}}{(k-i)!} = \sum_{i=0}^{k} \frac{1}{i! (k-i)!} \alpha^i \beta^{k-i} \\
+        & = \frac{1}{k!} \sum_{i=0}^{k} \binom{k}{i} \alpha^i \beta^{k-i} = \frac{(\alpha + \beta)^k}{k!}.
+  \end{aligned}
+\]
+
+Also ist
+
+\[
+  \sum_{j=0}^{\infty} \frac{\alpha^j}{j!} X^j \cdot \sum_{j=0}^{\infty} \frac{\beta^j}{j!} X^j
+  = \sum_{k=0}^{\infty} \frac{(\alpha + \beta)^k}{k!} X^k = \exp((\alpha + \beta) X).
+\]
+
+Wir berechnen das Produkt:
+
+\[
+  (1 - 2X) \cdot \sum_{j=0}^{\infty} 2^j X^j.
+\]
+
+Wir nutzen dazu die Formel für die geometrische Reihe:
+
+\[
+  \sum_{j=0}^{\infty} 2^j X^j = \frac{1}{1 - 2X}.
+\]
+
+Also ist
+
+\[
+  (1 - 2X) \cdot \sum_{j=0}^{\infty} 2^j X^j = (1 - 2X) \cdot \frac{1}{1 - 2X} = 1.
 \]
 
 
-Geometrische Reihe:
-
-\[
-  \text{Für } \frac{1}{1 - x} = \sum_{n=0}^{\infty} x^n \quad \text{für } |x| < 1
-\]
-
-Wir erkennen, dass dies die Taylorreihe der Exponentialfunktion ist:
-
-\[
-  \exp(\lambda X) = \sum_{n=0}^\infty \frac{(\lambda X)^n}{n!} = \exp(\lambda) \cdot \exp(X)
-\]
-
-Daraus folgt dann:
-
-\[
-  \exp(\lambda X) \cdot \exp(\mu X) = \exp((\lambda + \mu) X)
-\]
-
-Der binomische Lehrsatz sagt nun:
-
-\[
-  (x + y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k}
-\]
-
-Somit ist das Produkt:
-
-\[
-  A(X) \cdot B(X) = e^B
-\]
-
-Für $1 - 2x$ gilt:
-
-Hier erkennen wir die geometrische Reihe mit:
-
-\[
-  f(X) = \frac{1}{1 - 2x}
-\]
-
-Dies multiplizieren wir nun mit $(1 - 2x)$:
-
-\[
-  \frac{1}{1 - 2x} \cdot (1 - 2x) = 1
-\]
-
-Wir erhalten also als Produkt $R(X)$ die Potenzreihe 1.
-
-
+\newpage
 \subsection*{b)}
-Zeigen Sie für $F := K(X)$:
+
+
+Für $f,g,h \in K[X]$ ist $(f \cdot g) \cdot h = f \cdot (g \cdot h)$.
+
+\begin{proof}
+  Sei $f = \sum_{i=0}^N a_i X^i$, $g = \sum_{i=0}^M b_i X^i$ und $h = \sum_{i=0}^L c_i X^i$.
+  Dann ist
+  \[
+    \begin{aligned}
+      (f \cdot g) \cdot h & = \left( \sum_{i=0}^N a_i X^i \cdot \sum_{i=0}^M b_i X^i \right) \cdot \sum_{i=0}^L c_i X^i \\
+                          & = \left(\sum_{k} \left(\sum_{i+j=k} a_i b_j\right) X^k\right) \cdot \sum_{i=0}^L c_i X^i    \\
+                          & = \sum_s \left(\sum_{k+l=s} c_l \left(\sum_{i+j=k} a_i b_j\right)\right) X^s                \\
+                          & = \sum_s \left(\sum_{i+j+k=s} a_i b_j c_k\right) X^s                                        \\
+                          & = \sum_s \left(\sum_{i+k=s} a_i \left(\sum_{j+l=k} b_j c_l\right)\right) X^s                \\
+                          & = \sum_{s} a_s X^s \cdot \left(\sum_{k} \left( \sum_{j+l=k} b_j c_l\right) X^k\right)       \\
+                          & = \sum_{s} a_s X^s \cdot \left(\sum_{k} b_k X^k \cdot \sum_{l} c_l X^l\right)               \\
+                          & = f \cdot (g \cdot h).
+    \end{aligned}
+  \]
+  Also ist $(f \cdot g) \cdot h = f \cdot (g \cdot h)$.
+\end{proof}
+
+
+\newpage
+
+Sei $K$ ein Körper. Für $f \in K[X]$ mit $f = \sum_{i=0}^N a_i X^i$
+definieren wir die Abbildung
 
 \[
-  (fg) \cdot h = f \cdot (g \cdot h) \quad \text{sowie} \quad F = F_{ij}
+  \tilde{f} : K \to K, x \mapsto \sum_{i=0}^{n} a_i x^i.
 \]
 
-\[
-  (f \cdot g) \cdot h = f \cdot (g \cdot h)
-\]
+Für $f,g \in K[X]$ gilt $\widetilde{f \cdot g} = \tilde{f} \cdot \tilde{g} $.
+\begin{proof}
+  Sei $f = \sum_{i=0}^N a_i X^i$ und $g = \sum_{i=0}^M b_i X^i$.
+  Zudem sei $x \in K$.
+  Dann ist
 
-Für $f_i, g_i, h_i$ Objekte und $p_e$:
-
-\[
-  f \cdot g = d \quad \text{mit} \quad (f \cdot g) \cdot h
-\]
-
-\[
-  V_s = d_{ij} b_j
-\]
-
-\[
-  f(g \cdot h): V = s_i \cdot e_r \quad \text{mit} \quad e_r: r \to b_j e_r
-\]
-
-\[
-  = e_s i r b_j e_r = d_i b_j e_r = V_s
-\]
-
-Für alle $s$ folgt also:
-
-\[
-  (f \cdot g) \cdot h = f \cdot (g \cdot h)
-\]
-
-Also:
-
-\[
-  i + j + l = s
-\]
-
-
+  \[
+    \begin{aligned}
+      (\widetilde{f \cdot g})(x)
+       & = \widetilde{\left( \sum_k \left( \sum_{i+j=k} a_i b_j \right) X^k \right)}(x) \\
+       & = \sum_k \left( \sum_{i+j=k} a_i b_j \right) x^k                               \\
+       & = \sum_i a_i x^i \cdot \sum_j b_j x^j                                          \\
+       & = \left(\sum_i a_i x^i \right)(x) \cdot \left(\sum_j b_j X^j\right)(x)         \\
+       & = \widetilde{f}(x) \cdot \widetilde{g}(x)                                      \\
+       & = (\tilde{f} \cdot \tilde{g})(x).
+    \end{aligned}
+  \]
+\end{proof}
 \end{document}
