@@ -70,5 +70,98 @@
 \section*{Aufgabe 1}
 \subsection*{a)}
 
+\[
+  \tilde{f} := K[X]
+\]
+
+
+Geometrische Reihe:
+
+\[
+  \text{Für } \frac{1}{1 - x} = \sum_{n=0}^{\infty} x^n \quad \text{für } |x| < 1
+\]
+
+Wir erkennen, dass dies die Taylorreihe der Exponentialfunktion ist:
+
+\[
+  \exp(\lambda X) = \sum_{n=0}^\infty \frac{(\lambda X)^n}{n!} = \exp(\lambda) \cdot \exp(X)
+\]
+
+Daraus folgt dann:
+
+\[
+  \exp(\lambda X) \cdot \exp(\mu X) = \exp((\lambda + \mu) X)
+\]
+
+Der binomische Lehrsatz sagt nun:
+
+\[
+  (x + y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k}
+\]
+
+Somit ist das Produkt:
+
+\[
+  A(X) \cdot B(X) = e^B
+\]
+
+Für $1 - 2x$ gilt:
+
+Hier erkennen wir die geometrische Reihe mit:
+
+\[
+  f(X) = \frac{1}{1 - 2x}
+\]
+
+Dies multiplizieren wir nun mit $(1 - 2x)$:
+
+\[
+  \frac{1}{1 - 2x} \cdot (1 - 2x) = 1
+\]
+
+Wir erhalten also als Produkt $R(X)$ die Potenzreihe 1.
+
+
+\subsection*{b)}
+Zeigen Sie für $F := K(X)$:
+
+\[
+  (fg) \cdot h = f \cdot (g \cdot h) \quad \text{sowie} \quad F = F_{ij}
+\]
+
+\[
+  (f \cdot g) \cdot h = f \cdot (g \cdot h)
+\]
+
+Für $f_i, g_i, h_i$ Objekte und $p_e$:
+
+\[
+  f \cdot g = d \quad \text{mit} \quad (f \cdot g) \cdot h
+\]
+
+\[
+  V_s = d_{ij} b_j
+\]
+
+\[
+  f(g \cdot h): V = s_i \cdot e_r \quad \text{mit} \quad e_r: r \to b_j e_r
+\]
+
+\[
+  = e_s i r b_j e_r = d_i b_j e_r = V_s
+\]
+
+Für alle $s$ folgt also:
+
+\[
+  (f \cdot g) \cdot h = f \cdot (g \cdot h)
+\]
+
+Also:
+
+\[
+  i + j + l = s
+\]
+
 
 \end{document}
