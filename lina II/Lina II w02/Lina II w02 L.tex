@@ -70,12 +70,12 @@ $A \in \Mat(m, K)$,
 $C \in \Mat(n, K)$
 definiere die Blockmatrix
 $
-B(A, C) := 
-\begin{pmatrix*}
+  B(A, C) :=
+  \begin{pmatrix*}
     A & 0 \\
     0 & C \\
-\end{pmatrix*}
-\in \Mat(m + n, K).
+  \end{pmatrix*}
+  \in \Mat(m + n, K).
 $
 Wir zeigen:
 $ \quad \det(B(A, C)) = \det(A) \cdot \det(C)$.
@@ -89,16 +89,16 @@ Nutze
 und erhalte
 $C'$
 in oberer Dreiecksform mit
-$\det(C')= \pm \det(C)= 0$. 
+$\det(C')= \pm \det(C)= 0$.
 
 Aus
 \textit{Satz 6.7}
 folgt direkt
 
 \[
-\det(C') = 0
-\tovs{6.7}{\equ}
-\rg(C') = \tilde{\rg}(C') \neq n
+  \det(C') = 0
+  \tovs{6.7}{\equ}
+  \rg(C') = \tilde{\rg}(C') \neq n
 \]
 
 Da
@@ -109,11 +109,11 @@ muss mindestens die letzte Zeile null sein.
 Also ist
 
 \[
-C'_{nn} = 0
-\movs{}{\equ}
-B(A, C')_{m+n,m+n} = 0
-\tovs{D5}{\imp}
-\det(B(A, C)) = \pm \det(B(A, C')) = 0.
+  C'_{nn} = 0
+  \movs{}{\equ}
+  B(A, C')_{m+n,m+n} = 0
+  \tovs{D5}{\imp}
+  \det(B(A, C)) = \pm \det(B(A, C')) = 0.
 \]
 
 
@@ -133,22 +133,22 @@ $\lambda \in K$
 gilt
 
 \begin{align*}
-    \widetilde{\det}\vect{\tilde{a}_1 \\ \vdots \\  \lambda(\tilde{a}_i'+\tilde{a}_i'') \\ \vdots \\ \tilde{a_m}}
-    \eq 
-    &\det\legs{cc}{\tilde{a}_1\\ \vdots \\  \lambda(\tilde{a}_i'+\tilde{a}_i'') & 0 \\ \vdots \\ \tilde{a_m} \\ 0 & C} \cdot \det(C)^{-1} \\
-    \eq 
-    &\lambda \cdot
-    \det\legs{cc}{\tilde{a}_1\\ \vdots \\  \tilde{a}_i' & 0 \\ \vdots \\ \tilde{a_m} \\ 0 & C} 
-    \cdot \det(C)^{-1}
-    +
-    \lambda \cdot
-    \det\legs{cc}{\tilde{a}_1\\ \vdots \\  \tilde{a}_i'' & 0 \\ \vdots \\ \tilde{a_m} \\ 0 & C}
-    \cdot \det(C)^{-1}\\
-    \eq 
-    &\lambda \cdot
-    \widetilde{\det}\vect{\tilde{a}_1 \\ \vdots \\  \tilde{a}_i' \\ \vdots \\ \tilde{a_m}}+
-    \lambda \cdot
-    \widetilde{\det}\vect{\tilde{a}_1 \\ \vdots \\  \tilde{a}_i'' \\ \vdots \\ \tilde{a_m}}
+  \widetilde{\det}\vect{\tilde{a}_1 \\ \vdots \\  \lambda(\tilde{a}_i'+\tilde{a}_i'') \\ \vdots \\ \tilde{a_m}}
+  \eq
+   & \det\legs{cc}{\tilde{a}_1      \\ \vdots \\  \lambda(\tilde{a}_i'+\tilde{a}_i'') & 0 \\ \vdots \\ \tilde{a_m} \\ 0 & C} \cdot \det(C)^{-1} \\
+  \eq
+   & \lambda \cdot
+  \det\legs{cc}{\tilde{a}_1         \\ \vdots \\  \tilde{a}_i' & 0 \\ \vdots \\ \tilde{a_m} \\ 0 & C}
+  \cdot \det(C)^{-1}
+  +
+  \lambda \cdot
+  \det\legs{cc}{\tilde{a}_1         \\ \vdots \\  \tilde{a}_i'' & 0 \\ \vdots \\ \tilde{a_m} \\ 0 & C}
+  \cdot \det(C)^{-1}                \\
+  \eq
+   & \lambda \cdot
+  \widetilde{\det}\vect{\tilde{a}_1 \\ \vdots \\  \tilde{a}_i' \\ \vdots \\ \tilde{a_m}}+
+  \lambda \cdot
+  \widetilde{\det}\vect{\tilde{a}_1 \\ \vdots \\  \tilde{a}_i'' \\ \vdots \\ \tilde{a_m}}
 \end{align*}
 
 (D2) $\widetilde{\det}$ ist alternierend, denn falls
@@ -172,13 +172,13 @@ Spaltenentwicklungssatz von Laplace:
 
 \begin{align*}
   \det(B^{(m)})
-  &\eq
-  \sum_{i=1}^{m+n} (-1)^{i+1} \cdot b_{i1} \cdot \det(B^{(m)\;\text{Str}}_{i1})\\
-  &\eq
+   & \eq
+  \sum_{i=1}^{m+n} (-1)^{i+1} \cdot b_{i1} \cdot \det(B^{(m)\;\text{Str}}_{i1})                                                                \\
+   & \eq
   (-1)^{1+1} \cdot b_{11} \cdot \det(B^{(m)\;\text{Str}}_{11}) + \sum_{i=2}^{m+n} (-1)^{i+1} \cdot b_{i1} \cdot \det(B^{(m)\;\text{Str}}_{i1}) \\
-  &\eq
-  1 \cdot 1 \cdot \det(B^{(m)\;\text{Str}}_{11}) + \sum_{i=2}^{m+n} (-1)^{i+1} \cdot 0 \cdot \det(B^{(m)\;\text{Str}}_{i1})\\
-  &\eq
+   & \eq
+  1 \cdot 1 \cdot \det(B^{(m)\;\text{Str}}_{11}) + \sum_{i=2}^{m+n} (-1)^{i+1} \cdot 0 \cdot \det(B^{(m)\;\text{Str}}_{i1})                    \\
+   & \eq
   \det(B^{(m)\;\text{Str}}_{11}) \quad = \quad \det(B^{(m-1)})
 \end{align*}
 
@@ -189,9 +189,9 @@ Wir erhalten schließlich
 $B^{(0)} = C$.
 Also ist
 $$\det(B^{(m)}) \cdot \det(C)^{-1}
-\eq \det(B^{(0)}) \cdot \det(C)^{-1}
-\eq \det(C) \cdot \det(C)^{-1}
-\eq 1.$$
+  \eq \det(B^{(0)}) \cdot \det(C)^{-1}
+  \eq \det(C) \cdot \det(C)^{-1}
+  \eq 1.$$
 Da
 $\widetilde{\det}$
 \textit{(D1), (D2), (D3)}
@@ -199,9 +199,9 @@ erfüllt und die Determinantenabbildung eindeutig ist muss
 $\widetilde{\det} = \det$ sein.
 also ist
 \begin{align*}
-  & \det(A) = \widetilde{\det}(A) = \det(B(A, C)) \cdot \det(C)^{-1} \\
+   & \det(A) = \widetilde{\det}(A) = \det(B(A, C)) \cdot \det(C)^{-1} \\
   \movs{}{\equ}
-  & \det(A) \cdot \det(C) = \det(B(A, C))
+   & \det(A) \cdot \det(C) = \det(B(A, C))
 \end{align*}
 
 

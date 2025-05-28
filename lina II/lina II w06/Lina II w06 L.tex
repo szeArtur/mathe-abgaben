@@ -75,13 +75,13 @@
 
 Wir betrachten die Punkte
 \[
-A := \vect{0\\0}, \quad
-B := \vect{2\\3}, \quad
-C := \vect{4\\-1}, \quad
-A' := \vect{-4\\-2}, \quad
-B' := \vect{8\\3}, \quad
-C' := \vect{6\\1}
-\in \RR^2.
+  A := \vect{0\\0}, \quad
+  B := \vect{2\\3}, \quad
+  C := \vect{4\\-1}, \quad
+  A' := \vect{-4\\-2}, \quad
+  B' := \vect{8\\3}, \quad
+  C' := \vect{6\\1}
+  \in \RR^2.
 \]
 und die Dreiecke $\Delta$ mit den Eckpunkten
 $A,B,C$ und $\Delta'$ mit den Eckpunkten
@@ -90,21 +90,21 @@ Gesucht ist eine affine Abbildung
 $F: \RR^2 \to \RR^2, x \mapsto M \cdot x + b$
 mit
 \[
-M = \legs{cc}{ M_{11} & M_{12} \\ M_{21} & M_{22} }
-\in \Mat(2,\RR) \qquad\text{und}\qquad b \in \RR,
+  M = \legs{cc}{ M_{11} & M_{12} \\ M_{21} & M_{22} }
+  \in \Mat(2,\RR) \qquad\text{und}\qquad b \in \RR,
 \]
 sodass $A' = F(A)$, $B' = F(B)$ und $C' = F(C)$.
 Zunächst gilt
 \[
-\vect{-4\\-2} = A' = F(A) = M \cdot \vect{0\\0} + b = b
-\qquad\imp\qquad
-b = \vect{-4\\-2}.
+  \vect{-4\\-2} = A' = F(A) = M \cdot \vect{0\\0} + b = b
+  \qquad\imp\qquad
+  b = \vect{-4\\-2}.
 \]
 Also gilt für $B'$:
 \[
-\vect{8\\3} = B' = F(B) = M \cdot \vect{2\\3} + \vect{-4\\-2}
-\qquad\imp\qquad
-M \cdot \vect{2\\3} = \vect{12\\5}.
+  \vect{8\\3} = B' = F(B) = M \cdot \vect{2\\3} + \vect{-4\\-2}
+  \qquad\imp\qquad
+  M \cdot \vect{2\\3} = \vect{12\\5}.
 \]
 Daraus folgt
 $2 \cdot M_{11} + 3 \cdot M_{12} = 12$
@@ -112,9 +112,9 @@ und
 $2 \cdot M_{21} + 3 \cdot M_{22} = 5$.
 Für $C'$ gilt:
 \[
-\vect{6\\1} = C' = F(C) = M \cdot \vect{4\\-1} + \vect{-4\\-2}
-\qquad\imp\qquad
-M \cdot \vect{4\\-1} = \vect{10\\3}.
+  \vect{6\\1} = C' = F(C) = M \cdot \vect{4\\-1} + \vect{-4\\-2}
+  \qquad\imp\qquad
+  M \cdot \vect{4\\-1} = \vect{10\\3}.
 \]
 Daraus folgt
 $4 \cdot M_{11} - \cdot M_{12} = 10$
@@ -122,24 +122,24 @@ und
 $4 \cdot M_{21} - \cdot M_{22} = 3$.
 Daraus ergeben sich zwei LGS, die wir mit dem Gaußverfahren lösen:
 \[
-\legs{cc}{2 & 3 \\ 4 & -1} \cdot \vect{M_{11} \\ M_{12}}= \vect{12 \\ 10}
-\qquad\imp\qquad
-\vect{M_{11} \\ M_{12}} = \vect{3 \\ 2}
+  \legs{cc}{2 & 3 \\ 4 & -1} \cdot \vect{M_{11} \\ M_{12}}= \vect{12 \\ 10}
+  \qquad\imp\qquad
+  \vect{M_{11} \\ M_{12}} = \vect{3 \\ 2}
 \]
 und
 \[
-\legs{cc}{2 & 3 \\ 4 & -1} \cdot \vect{M_{21} \\ M_{22}}= \vect{5 \\ 3}
-\qquad\imp\qquad
-\vect{M_{21} \\ M_{22}} = \vect{1 \\ 1}.
+  \legs{cc}{2 & 3 \\ 4 & -1} \cdot \vect{M_{21} \\ M_{22}}= \vect{5 \\ 3}
+  \qquad\imp\qquad
+  \vect{M_{21} \\ M_{22}} = \vect{1 \\ 1}.
 \]
-Also ist 
+Also ist
 \[
-M = \legs{cc}{3 & 2 \\ 1 & 1}.
+  M = \legs{cc}{3 & 2 \\ 1 & 1}.
 \]
 Nun gilt $\Delta' = F(\Delta)$ und daher
 \[
-\vol_2(\Delta') = \vol_2(F(\Delta)) = |\det(M)| \cdot \vol_2(\Delta)
-= |(3 \cdot 1 - 2 \cdot 1)| \cdot \vol_2(\Delta) = \vol_2(\Delta).
+  \vol_2(\Delta') = \vol_2(F(\Delta)) = |\det(M)| \cdot \vol_2(\Delta)
+  = |(3 \cdot 1 - 2 \cdot 1)| \cdot \vol_2(\Delta) = \vol_2(\Delta).
 \]
 
 
@@ -151,9 +151,9 @@ Nun gilt $\Delta' = F(\Delta)$ und daher
 Sei \( X \in \mathbb{K}^{n-1} \), \( \hat{b} \in \mathbb{R}^{n-1} \) und \( h > 0 \). Wir definieren den schiefen Zylinder über \( X \) durch
 
 \[
-\hat{Z}_{\hat{b},h}(X) := \left\{ 
-\left( \hat{x} + \frac{s}{h} \hat{b}, s \right) \; \middle| \; \hat{x} \in X, \; s \in [0, h] 
-\right\}.
+  \hat{Z}_{\hat{b},h}(X) := \left\{
+  \left( \hat{x} + \frac{s}{h} \hat{b}, s \right) \; \middle| \; \hat{x} \in X, \; s \in [0, h]
+  \right\}.
 \]
 
 \subsubsection*{Beispielskizze schiefer Zylinder}
@@ -172,53 +172,53 @@ Es ist $\operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = h \cdot \o
 \begin{proof}
   Der verallgemeinerte Zylinder über \( X \) ist definiert durch
   \[
-  Z_h(X) := X \times [0, h] \subset \mathbb{R}^{n-1} \times \mathbb{R}.
+    Z_h(X) := X \times [0, h] \subset \mathbb{R}^{n-1} \times \mathbb{R}.
   \]
-  
+
   Wir betrachten dann die affine Abbildung
   \[
-  G : Z_h(X) \rightarrow \mathbb{R}^n, \quad \begin{pmatrix} \hat{x} \\ s \end{pmatrix} \mapsto \begin{pmatrix} \hat{x} + \frac{s}{h} \hat{b} \\ s \end{pmatrix}.
+    G : Z_h(X) \rightarrow \mathbb{R}^n, \quad \begin{pmatrix} \hat{x} \\ s \end{pmatrix} \mapsto \begin{pmatrix} \hat{x} + \frac{s}{h} \hat{b} \\ s \end{pmatrix}.
   \]
-  
+
   Diese Abbildung ist affin, da sie die Form
   \[
-  G(x) = A \cdot x + b
-  \quad \text{mit } b = 0
-  \quad \text{und }  A := \begin{pmatrix} 
-  I_{n-1} & \frac{1}{h} \hat{b} \\
-  0 & 1 
-  \end{pmatrix},
+    G(x) = A \cdot x + b
+    \quad \text{mit } b = 0
+    \quad \text{und }  A := \begin{pmatrix}
+      I_{n-1} & \frac{1}{h} \hat{b} \\
+      0       & 1
+    \end{pmatrix},
   \]
   hat und es gilt:
   \[
-  G(x) = 
-  \begin{pmatrix} 
-  I_{n-1} & \frac{1}{h} \hat{b} \\
-  0 & 1 
-  \end{pmatrix}
-  \begin{pmatrix} \hat{x} \\ s \end{pmatrix} = 
-  \begin{pmatrix} \hat{x} + \frac{s}{h} \hat{b} \\ s \end{pmatrix}.
+    G(x) =
+    \begin{pmatrix}
+      I_{n-1} & \frac{1}{h} \hat{b} \\
+      0       & 1
+    \end{pmatrix}
+    \begin{pmatrix} \hat{x} \\ s \end{pmatrix} =
+    \begin{pmatrix} \hat{x} + \frac{s}{h} \hat{b} \\ s \end{pmatrix}.
   \]
-  
+
   Wir wollen nun zeigen, dass
   \[
-  \operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = h \cdot \operatorname{vol}_{n-1}(X).
+    \operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = h \cdot \operatorname{vol}_{n-1}(X).
   \]
-  
+
   Wir berechnen die Determinante der Matrix \( A \):
   \[
-  \det(A) = \det \begin{pmatrix} I_{n-1} & \frac{1}{h} \hat{b} \\ 0 & 1 \end{pmatrix} 
-  = \det(I_{n-1}) \cdot 1 - 0 \cdot \frac{1}{h} \hat{b} = 1.
+    \det(A) = \det \begin{pmatrix} I_{n-1} & \frac{1}{h} \hat{b} \\ 0 & 1 \end{pmatrix}
+    = \det(I_{n-1}) \cdot 1 - 0 \cdot \frac{1}{h} \hat{b} = 1.
   \]
-  
+
   Da \( G \) eine affine Abbildung mit \( \det(G) = 1 \) ist, bleibt das Volumen beim Übergang erhalten.
   Nach \textit{Korollar 6.107} gilt daher:
   \[
-  \operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = |\det(G)| \cdot \operatorname{vol}_n \left( Z_h(X) \right)
-  =  \operatorname{vol}_n \left( Z_h(X) \right) = h \cdot \operatorname{vol}_{n-1}(X).
-  \qedhere
+    \operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = |\det(G)| \cdot \operatorname{vol}_n \left( Z_h(X) \right)
+    =  \operatorname{vol}_n \left( Z_h(X) \right) = h \cdot \operatorname{vol}_{n-1}(X).
+    \qedhere
   \]
-  
+
 \end{proof}
 
 
@@ -231,7 +231,7 @@ Es ist $\operatorname{vol}_n \left( \hat{Z}_{\hat{b}, h}(X) \right) = h \cdot \o
 Für ein festes $n \in \NN$ und $s \in (0, \infty)$
 sei die Abbildung
 $$
-F_s: B_{R}(0) \to \RR^n , x \mapsto (s \cdot \mathbbm{1}_n) \cdot x.
+  F_s: B_{R}(0) \to \RR^n , x \mapsto (s \cdot \mathbbm{1}_n) \cdot x.
 $$
 Für jedes $x \in B_R(0)$ gilt $\Vert x \Vert \leq R$,
 also folgt für $F_s(x) = s \cdot \mathbbm{1}_n \cdot x = s \cdot x$,
@@ -241,18 +241,18 @@ Da $\det(s \cdot \mathbbm{1}_n) = s^n \neq 0$,
 ist $F_s$ bijektiv.
 Also ist $F_s(B_{R}(0)) = B_{s \cdot R}(0)$ und es gilt:
 $$
-\vol(B_{s \cdot R}(0)) \eq
-\vol((s \cdot \mathbbm{1}_n) \cdot B_{R}(0)) \eq
-|\det(s \cdot \mathbbm{1}_n)| \cdot \vol(B_R(0)) \eq 
-s^n \cdot \vol(B_R(0))
+  \vol(B_{s \cdot R}(0)) \eq
+  \vol((s \cdot \mathbbm{1}_n) \cdot B_{R}(0)) \eq
+  |\det(s \cdot \mathbbm{1}_n)| \cdot \vol(B_R(0)) \eq
+  s^n \cdot \vol(B_R(0))
 $$
 Sei nun $s = \frac{19}{20}$.
 Wir berechnen
 \begin{align*}
-  n=3: \qquad & \frac{\vol(B_{s\cdot R}(0))}{\vol(B_R(0))}
-  = s^n = \left(\frac{19}{20}\right)^3 \;\approx\; 0.86 \\
+  n=3: \qquad  & \frac{\vol(B_{s\cdot R}(0))}{\vol(B_R(0))}
+  = s^n = \left(\frac{19}{20}\right)^3 \;\approx\; 0.86     \\
   n=10: \qquad & \frac{\vol(B_{s\cdot R}(0))}{\vol(B_R(0))}
-  = s^n = \left(\frac{19}{20}\right)^{10} \;\approx\; 0.60 \\
+  = s^n = \left(\frac{19}{20}\right)^{10} \;\approx\; 0.60  \\
   n=25: \qquad & \frac{\vol(B_{s\cdot R}(0))}{\vol(B_R(0))}
   = s^n = \left(\frac{19}{20}\right)^{25} \;\approx\; 0.28
 \end{align*}
@@ -261,10 +261,10 @@ Wir berechnen
 Wir bestimmen das kleinste $n \in \NN$
 mit einem Schalenanteil von über $\frac{999999}{1000000}$:
 \begin{align*}
-  &1 -\frac{\vol(B_{s\cdot R}(0))}{\vol(B_R(0))} = 1- \left(\frac{19}{20}\right)^n
-  \geq \frac{999999}{1000000} \\
-  \equ\qquad &\left(\frac{19}{20}\right)^n \leq \frac{1}{1000000} \\
-  \equ\qquad &n \geq \log_{\frac{19}{20}}\left(\frac{1}{1000000}\right) \approx 269.34 \\
+              & 1 -\frac{\vol(B_{s\cdot R}(0))}{\vol(B_R(0))} = 1- \left(\frac{19}{20}\right)^n
+  \geq \frac{999999}{1000000}                                                                   \\
+  \equ\qquad  & \left(\frac{19}{20}\right)^n \leq \frac{1}{1000000}                             \\
+  \equ\qquad  & n \geq \log_{\frac{19}{20}}\left(\frac{1}{1000000}\right) \approx 269.34        \\
   \imp \qquad & n = \lceil 269.34 \rceil = 270.
 \end{align*}
 

@@ -79,10 +79,10 @@ $B(1) = (v(1), w(1))$ gleich orientiert.
 \begin{proof}
   Die Funktionen $\l v_1, v_2, w_1, w_2$ sind stetig.
   Also ist $\det(B_s) = v_1(s) \cdot w_2(s)
-  - v_2(s) \cdot w_1(s)$, nach (\textit{Analysis I Satz 5.6.})
-  ebenfalls stetig. 
+    - v_2(s) \cdot w_1(s)$, nach (\textit{Analysis I Satz 5.6.})
+  ebenfalls stetig.
   Angenommen $B(0)$ und $B(1)$ wären verschieden orientiert.
-  Falls $\det(B(0)) > 0$, folgt dann $\det(B(1)) < 0$ und 
+  Falls $\det(B(0)) > 0$, folgt dann $\det(B(1)) < 0$ und
   falls $\det(B(0)) < 0$, folgt $\det(B(1)) > 0$.
   Also wäre $M := \sup(det(B([0,1]))) > 0$ und
   $m :=\inf(det(B([0,1]))) < 0$
@@ -97,15 +97,15 @@ $B(1) = (v(1), w(1))$ gleich orientiert.
 \subsection*{b)}
 Für die stetigen Abbildungen
 $$
-V: [0,1] \to \RR^3, x \mapsto \vect{1 \\ 0 \\ 0}
-\qquad\text{und}\qquad
-W: [0,1] \to \RR^3, x \mapsto \vect{0 \\ \sin(\pi x) \\ \cos(\pi x)}
+  V: [0,1] \to \RR^3, x \mapsto \vect{1 \\ 0 \\ 0}
+  \qquad\text{und}\qquad
+  W: [0,1] \to \RR^3, x \mapsto \vect{0 \\ \sin(\pi x) \\ \cos(\pi x)}
 $$
 gilt
 \begin{align*}
-  &\text{i)} \quad L(V(0), W(0)) = L(V (1), W(1)) = \{ x \in \RR^3 | x_2 = 0 \} =: E\\
-  &\text{ii)} \quad \text{Für alle $s \in [0,1]$ sind $V(s),W(s)$ l.u.}\\
-  &\text{iii)} \quad \text{Die Basen $(V(0),W(0))$ und $(V(1),W(1))$ von $E$ sind verschieden orientiert.}
+   & \text{i)} \quad L(V(0), W(0)) = L(V (1), W(1)) = \{ x \in \RR^3 | x_2 = 0 \} =: E                       \\
+   & \text{ii)} \quad \text{Für alle $s \in [0,1]$ sind $V(s),W(s)$ l.u.}                                    \\
+   & \text{iii)} \quad \text{Die Basen $(V(0),W(0))$ und $(V(1),W(1))$ von $E$ sind verschieden orientiert.}
 \end{align*}
 
 
@@ -115,15 +115,15 @@ gilt
   Zu  \textit{i)}:
   Es ist
   $$
-  L(V(0),W(0)) = L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ \sin(0) \\ \cos(0)}\right)
-  = L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ 0 \\ 1}\right)
-  = \{ x \in \RR^3 | x_2 = 0 \} = E
+    L(V(0),W(0)) = L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ \sin(0) \\ \cos(0)}\right)
+    = L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ 0 \\ 1}\right)
+    = \{ x \in \RR^3 | x_2 = 0 \} = E
   $$
   und
   $$
-  L(V(1),W(1)) =  L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ \sin(1) \\ \cos(1)}\right)
-  = L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ 0 \\ -1}\right)
-  = \{ x \in \RR^3 | x_2 = 0 \} = E.
+    L(V(1),W(1)) =  L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ \sin(1) \\ \cos(1)}\right)
+    = L\left(\vect{1 \\ 0 \\ 0} , \vect{0 \\ 0 \\ -1}\right)
+    = \{ x \in \RR^3 | x_2 = 0 \} = E.
   $$
 
   Zu \textit{ii)}:
@@ -154,50 +154,50 @@ die Abbildung $p : \RR^3 \to \RR^3, x \mapsto p(x)$ ist affin.
   Es ist $$G(x) = x + L(v) = \{ x + \lambda v  \;|\;  \lambda \in \RR \}= \{ x - \lambda v  \;|\;  \lambda \in \RR \}$$
   und $$E = -e_2 + L(e_1, e_3) = \{y \in \RR^3  \;|\; \exists\mu_1, \mu_2 \in \RR: y = -e_2 + \mu_1 e_1 + \mu_2 e_3\}.$$
   Für den Schnitt gilt also:
-\begin{align*}
+  \begin{align*}
     G(x) \cap E
-    &\eq \{x - \lambda v  \;|\; \exists \lambda, \mu_1, \mu_2 \in \RR: x - \lambda v = -e_2 + \mu_1 e_1 + \mu_2 e_3\} \\
-    &\eq \{x - \lambda v  \;|\; \exists \lambda, \mu_1, \mu_2 \in \RR: x + e_2 = \lambda v + \mu_1 e_1 + \mu_2 e_3\}
-\end{align*}
+     & \eq \{x - \lambda v  \;|\; \exists \lambda, \mu_1, \mu_2 \in \RR: x - \lambda v = -e_2 + \mu_1 e_1 + \mu_2 e_3\} \\
+     & \eq \{x - \lambda v  \;|\; \exists \lambda, \mu_1, \mu_2 \in \RR: x + e_2 = \lambda v + \mu_1 e_1 + \mu_2 e_3\}
+  \end{align*}
 
-Da $v \notin L(e_1,e_3)$ sind $e_1, e_3, v$ linear unabhängig.
-In der Linearkombination $x + e_2 = \lambda v + \mu_1 e_1 + \mu_2 e_3$
-sind daher $\lambda, \mu_1, \mu_2$ eindeutig bestimmt.
-Insbesondere ist dann $x - \lambda v$ eindeutig und
-$G(x) \cap E$ besteht nur aus einem Element.
+  Da $v \notin L(e_1,e_3)$ sind $e_1, e_3, v$ linear unabhängig.
+  In der Linearkombination $x + e_2 = \lambda v + \mu_1 e_1 + \mu_2 e_3$
+  sind daher $\lambda, \mu_1, \mu_2$ eindeutig bestimmt.
+  Insbesondere ist dann $x - \lambda v$ eindeutig und
+  $G(x) \cap E$ besteht nur aus einem Element.
 
-\bigbreak
-Da $e_1, e_3, v$ linear unabhängig sind, ist $B_E := (e_1, e_3, v)$
-eine Basis des $\RR^3$.
-Wir zeigen nun die Affinität der Abbildung $p$ in dem wir zeigen,
-dass die Abbildungsvorschrift:
-\[
-p(x) \;:=\; \left((T^{B_E}_{B_0}) \cdot
-\begin{psmallmatrix*}[c]
-  \mathbbm{1}_2 & 0 \\ 0 & 0
-\end{psmallmatrix*}
-\cdot (T^{B_E}_{B_0})^{-1}\right) \cdot x - \left(v\cdot \tfrac{-1}{v_2}\right)
-\eq \begin{pmatrix*}
-  1 & -\frac{v_1}{v_2} & 0 \\
-  0 & 0 & 0 \\
-  0 & -\frac{v_3}{v_2} & 1
-\end{pmatrix*}
-\cdot x - \vect{ -\frac{v_1}{v_2} \\ -1 \\ -\frac{v_3}{v_2}}
-\]
-die gegebene Voraussetzung erfüllt, also $p(x) \in G(x) \cap E$.
-Es gilt:
-\[
-p(x) = \vect{x_1 - \frac{v_1}{v_2}x_2 -\frac{v_1}{v_2}\\  -1  \\  x_3-\frac{v_3}{v_2} x_2-\frac{v_3}{v_2}} =
-\vect{x_1 - \frac{x_2-1}{v_2} v_1\\  x_2 - \frac{x_2-1}{v_2} v_2  \\  x_3 - \frac{x_2-1}{v_2} v_3} =
-x - \left(\frac{x_2-1}{v_2}\right) \cdot v \quad\in G(x)
-\]
-und
-\[
-p(x) = \vect{x_1 - \frac{v_1}{v_2}x_2 -\frac{v_1}{v_2}\\  -1  \\  x_3-\frac{v_3}{v_2} x_2-\frac{v_3}{v_2}} =
--e_2 + \left(x_1 - \frac{v_1}{v_2}x_2 -\frac{v_1}{v_2}\right) \cdot e_1 + \left(x_3-\frac{v_3}{v_2} x_2-\frac{v_3}{v_2}\right) \cdot e_3
-\quad\in E
-\]
-Also lässt sich $p(x)$ in der Form $A \cdot x + b$ schreiben.
+  \bigbreak
+  Da $e_1, e_3, v$ linear unabhängig sind, ist $B_E := (e_1, e_3, v)$
+  eine Basis des $\RR^3$.
+  Wir zeigen nun die Affinität der Abbildung $p$ in dem wir zeigen,
+  dass die Abbildungsvorschrift:
+  \[
+    p(x) \;:=\; \left((T^{B_E}_{B_0}) \cdot
+    \begin{psmallmatrix*}[c]
+      \mathbbm{1}_2 & 0 \\ 0 & 0
+    \end{psmallmatrix*}
+    \cdot (T^{B_E}_{B_0})^{-1}\right) \cdot x - \left(v\cdot \tfrac{-1}{v_2}\right)
+    \eq \begin{pmatrix*}
+      1 & -\frac{v_1}{v_2} & 0 \\
+      0 & 0 & 0 \\
+      0 & -\frac{v_3}{v_2} & 1
+    \end{pmatrix*}
+    \cdot x - \vect{ -\frac{v_1}{v_2} \\ -1 \\ -\frac{v_3}{v_2}}
+  \]
+  die gegebene Voraussetzung erfüllt, also $p(x) \in G(x) \cap E$.
+  Es gilt:
+  \[
+    p(x) = \vect{x_1 - \frac{v_1}{v_2}x_2 -\frac{v_1}{v_2}\\  -1  \\  x_3-\frac{v_3}{v_2} x_2-\frac{v_3}{v_2}} =
+    \vect{x_1 - \frac{x_2-1}{v_2} v_1\\  x_2 - \frac{x_2-1}{v_2} v_2  \\  x_3 - \frac{x_2-1}{v_2} v_3} =
+    x - \left(\frac{x_2-1}{v_2}\right) \cdot v \quad\in G(x)
+  \]
+  und
+  \[
+    p(x) = \vect{x_1 - \frac{v_1}{v_2}x_2 -\frac{v_1}{v_2}\\  -1  \\  x_3-\frac{v_3}{v_2} x_2-\frac{v_3}{v_2}} =
+    -e_2 + \left(x_1 - \frac{v_1}{v_2}x_2 -\frac{v_1}{v_2}\right) \cdot e_1 + \left(x_3-\frac{v_3}{v_2} x_2-\frac{v_3}{v_2}\right) \cdot e_3
+    \quad\in E
+  \]
+  Also lässt sich $p(x)$ in der Form $A \cdot x + b$ schreiben.
 \end{proof}
 
 

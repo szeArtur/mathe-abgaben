@@ -69,9 +69,9 @@
 \subsection*{a)}
 Wir betrachten die Permutation
 \[
-\sigma := \begin{pmatrix}
-  1 & 2 & 3 & 4 & 5 & 6 & 7 \\
-  3 & 4 & 1 & 7 & 5 & 2 & 6
+  \sigma := \begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+    3 & 4 & 1 & 7 & 5 & 2 & 6
   \end{pmatrix} \in S_7.
 \]
 ''$n=7$''
@@ -83,9 +83,9 @@ $\tau_1$
 die Transposition,
 die $6$ und $7$ vertauscht:
 \[
-\tau_1 := \begin{pmatrix}
-  1 & 2 & 3 & 4 & 5 & 6 & 7 \\
-  1 & 2 & 3 & 4 & 5 & 7 & 6
+  \tau_1 := \begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+    1 & 2 & 3 & 4 & 5 & 7 & 6
   \end{pmatrix}.
 \]
 Für
@@ -95,8 +95,8 @@ Wir wenden das Verfahren also erneut auf den Rest
 $\sigma'$ an, wobei
 \[
   \sigma' := (\tau_1 \circ \sigma)|_{X_6} = \begin{pmatrix}
-  1 & 2 & 3 & 4 & 5 & 6 \\
-  3 & 4 & 1 & 6 & 5 & 2
+    1 & 2 & 3 & 4 & 5 & 6 \\
+    3 & 4 & 1 & 6 & 5 & 2
   \end{pmatrix} \in S_6.
 \]
 ''$n=6$''
@@ -108,9 +108,9 @@ $\tau_2'$
 die Transposition,
 die $2$ und $6$ vertauscht:
 \[
-\tau_2' := \begin{pmatrix}
-  1 & 2 & 3 & 4 & 5 & 6 \\
-  1 & 6 & 3 & 4 & 5 & 2
+  \tau_2' := \begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 \\
+    1 & 6 & 3 & 4 & 5 & 2
   \end{pmatrix}.
 \]
 Für
@@ -120,20 +120,20 @@ Wir wenden das Verfahren erneut auf den Rest
 $\sigma''$ an, wobei
 \[
   \sigma'' := (\tau_2' \circ \sigma')|_{X_5} = \begin{pmatrix}
-  1 & 2 & 3 & 4 & 5 \\
-  3 & 4 & 1 & 2 & 5
+    1 & 2 & 3 & 4 & 5 \\
+    3 & 4 & 1 & 2 & 5
   \end{pmatrix}.
 \]
 ''$n=5$'' Es ist
 $\sigma''(5) = 5$.
-Für 
+Für
 $\sigma''$
 gilt daher ''Fall 1''.
 Wir wenden das Verfahren erneut auf $\sigma'''$ an, wobei
 \[
-\sigma''' := \sigma''|_{X_4} = \begin{pmatrix}
-  1 & 2 & 3 & 4 \\
-  3 & 4 & 1 & 2
+  \sigma''' := \sigma''|_{X_4} = \begin{pmatrix}
+    1 & 2 & 3 & 4 \\
+    3 & 4 & 1 & 2
   \end{pmatrix}.
 \]
 ''$n=4$''
@@ -145,9 +145,9 @@ $\tau_3'''$
 die Transposition,
 die $2$ und $4$ vertauscht:
 \[
-\tau_3''' := \begin{pmatrix}
-  1 & 2 & 3 & 4 \\
-  1 & 4 & 3 & 2
+  \tau_3''' := \begin{pmatrix}
+    1 & 2 & 3 & 4 \\
+    1 & 4 & 3 & 2
   \end{pmatrix}.
 \]
 Für
@@ -157,8 +157,8 @@ Wir wenden das Verfahren erneut auf den Rest
 $\sigma''''$ an, wobei
 \[
   \sigma'''' := (\tau_3''' \circ \sigma''')|_{X_3} = \begin{pmatrix}
-  1 & 2 & 3 \\
-  3 & 2 & 1
+    1 & 2 & 3 \\
+    3 & 2 & 1
   \end{pmatrix}.
 \]
 ''$n=3$''
@@ -170,9 +170,9 @@ $\tau_4''''$
 die Transposition,
 die $1$ und $3$ vertauscht:
 \[
-\tau_4'''' := \begin{pmatrix}
-  1 & 2 & 3  \\
-  3 & 2 & 1 
+  \tau_4'''' := \begin{pmatrix}
+    1 & 2 & 3 \\
+    3 & 2 & 1
   \end{pmatrix}.
 \]
 Für
@@ -182,13 +182,13 @@ Wir wenden das Verfahren also erneut auf den Rest
 $\sigma'''''$ an, wobei
 \[
   \sigma''''' := (\tau_3'''' \circ \sigma'''')|_{X_2} = \begin{pmatrix}
-  1 & 2 \\
-  1 & 2 
+    1 & 2 \\
+    1 & 2
   \end{pmatrix}.
 \]
 ''$n=2$'' Es ist
 $\sigma'''''(2) = 2$.
-Für 
+Für
 $\sigma'''''$
 gilt daher ''Fall 1''.
 Wir erhalten den Rest
@@ -197,32 +197,32 @@ und haben so den ''Induktionsanfang'' erreicht.
 \newpage
 Wir definieren eine ''Ergänzungsabbildung''
 \[
-\varphi : S_n \to S_7, \; \tau' \mapsto \tau
-\qquad \text{mit} \qquad
-\tau(k) :=
-\begin{cases*}
-  \tau'(k) & \text{für $k \in X_n$}\\
-  k & \text{sonst}
-\end{cases*}.
+  \varphi : S_n \to S_7, \; \tau' \mapsto \tau
+  \qquad \text{mit} \qquad
+  \tau(k) :=
+  \begin{cases*}
+    \tau'(k) & \text{für $k \in X_n$} \\
+    k        & \text{sonst}
+  \end{cases*}.
 \]
 Nun können wir alle Transpositionen ergänzen:
 \begin{align*}
-  \tau_1 = &\begin{pmatrix}
-    1 & 2 & 3 & 4 & 5 & 6 & 7 \\
-    1 & 2 & 3 & 4 & 5 & 7 & 6
-    \end{pmatrix}, \\
-  \tau_2 := \varphi(\tau_2') = &\begin{pmatrix}
-    1 & 2 & 3 & 4 & 5 & 6 & 7\\
-    1 & 6 & 3 & 4 & 5 & 2 & 7
-    \end{pmatrix}, \\
-  \tau_3 := \varphi(\tau_3''') = &\begin{pmatrix}
-    1 & 2 & 3 & 4 & 5 & 6 & 7\\
-    1 & 4 & 3 & 2 & 5 & 6 & 7
-    \end{pmatrix}, \\
-    \tau_4 := \varphi(\tau_4'''') = &\begin{pmatrix}
-      1 & 2 & 3 & 4 & 5 & 6 & 7\\
-      3 & 2 & 1 & 4 & 5 & 6 & 7
-      \end{pmatrix}.
+  \tau_1 =                        & \begin{pmatrix}
+                                      1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                                      1 & 2 & 3 & 4 & 5 & 7 & 6
+                                    \end{pmatrix}, \\
+  \tau_2 := \varphi(\tau_2') =    & \begin{pmatrix}
+                                      1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                                      1 & 6 & 3 & 4 & 5 & 2 & 7
+                                    \end{pmatrix}, \\
+  \tau_3 := \varphi(\tau_3''') =  & \begin{pmatrix}
+                                      1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                                      1 & 4 & 3 & 2 & 5 & 6 & 7
+                                    \end{pmatrix}, \\
+  \tau_4 := \varphi(\tau_4'''') = & \begin{pmatrix}
+                                      1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                                      3 & 2 & 1 & 4 & 5 & 6 & 7
+                                    \end{pmatrix}.
 \end{align*}
 Nun ist $\sigma = \tau_1 \circ \tau_2 \circ \tau_3 \circ \tau_4$.
 
