@@ -73,13 +73,13 @@
 
 Sei $f = \sum_{k=0}^{N}a_kX^k\in \CC[X]$ mit
 $a_k \in \RR$ für $k \leq N \in \NN$ und
-$\lambda \in \CC$ eine Nullstelle, so ist die
+$\lambda \in \CC$ eine Nullstelle von $f$, so ist die
 komplex konjugierte Zahl $\overline{\lambda} \in \CC$
 ebenfalls eine Nullstelle
 
 \begin{proof}
   Gelte $\tilde{f}(\lambda) = 0$.
-  Wir nutzen im folgenden, dass für $z\in\CC,a\in\RR$ gilt
+  Wir nutzen im Folgenden, dass für $z\in\CC,a\in\RR$ gilt
 
   \[
   a \cdot \overline{z} = \overline{a \cdot z},
@@ -105,6 +105,63 @@ ebenfalls eine Nullstelle
   \eq
   0.
   \]
+\end{proof}
+
+\subsection*{b)}
+
+Wir betrachten die reelle $3 \times 3$-Matrix
+
+\[
+A := 
+\begin{pmatrix}
+1 & -2 & 0 \\
+-2 & 5 & -4 \\
+0 & 4 & -1
+\end{pmatrix}
+\quad \text{sowie} \quad
+A - X \cdot \mathbbm{1}_3 := 
+\begin{pmatrix}
+1 - X & -2 & 0 \\
+-2 & 5 - X & -4 \\
+0 & 4 & -1 - X
+\end{pmatrix}.
+\]
+
+Wir berechnen
+
+\[
+\begin{aligned}
+  f_A
+  &=
+  \det(A - X \cdot \mathbbm{1}_3 ) \\
+  &=
+  (-X+1)(-X+5)(-X-1)-4(-4)(-X+1)-(-X-1)(-2)(-2)\\
+  &=
+  -X^3+5X^2-11X+15
+\end{aligned}
+\]
+
+Dieses Polynom $f_A \in \RR[X] \subset \CC[X]$
+hat eine Nullstelle $\lambda_1 \in \RR$.
+
+\begin{proof}
+  Das Polynom $f_A$ hat den Grad $\deg(f_A) = 3$
+  und zerfällt somit in $3$ Linearfaktoren:
+
+  \[
+  f_A = a(X - \lambda_1)(X - \lambda_2)(X - \lambda_3) \qquad
+  \text{für geeignete $a,\lambda_1,\lambda_2,\lambda_3 \in \CC$,}
+  \]
+
+  wobei $\lambda_1,\lambda_2,\lambda_3$
+  alle Nullstellen von $f_A$ sind.
+  Da alle Koeffizienten von $f_A$ reell sind, gibt es wie in
+  \textit{a)} gezeigt zu jedem $\lambda_n$ eine
+  zweite Nullstelle $\overline{\lambda_n}$.
+  Da $f_A$ eine ungerade Anzahl an Nullstellen hat,
+  muss für mindestens ein $\lambda_n$
+  gelten $\lambda_n = \overline{\lambda_n}$.
+  Dies is äquivalent zu $\lambda_n \in \RR$.
 \end{proof}
 
 \end{document}
