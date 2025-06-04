@@ -71,4 +71,40 @@
 \section*{Aufgabe 1}
 \subsection*{a)}
 
+Sei $f = \sum_{k=0}^{N}a_kX^k\in \CC[X]$ mit
+$a_k \in \RR$ für $k \leq N \in \NN$ und
+$\lambda \in \CC$ eine Nullstelle, so ist die
+komplex konjugierte Zahl $\overline{\lambda} \in \CC$
+ebenfalls eine Nullstelle
+
+\begin{proof}
+  Gelte $\tilde{f}(\lambda) = 0$.
+  Wir nutzen im folgenden, dass für $z\in\CC,a\in\RR$ gilt
+
+  \[
+  a \cdot \overline{z} = \overline{a \cdot z},
+  \qquad\qquad
+  \overline{z} + \overline{z} = \overline{z + z},
+  \qquad\qquad
+  \overline{z} \cdot \overline{z} = \overline{z \cdot z}.
+  \]
+
+  Also ist $\overline{\lambda} \in \CC$ eine Nullstelle von $f$,
+  denn:
+
+  \[
+  \tilde{f}(\overline{\lambda})
+  \eq
+  \sum_{k=0}^{N}a_k \overline{\lambda}^k
+  \eq
+  \overline{\sum_{k=0}^{N}a_k \lambda^k}
+  \eq
+  \overline{\tilde{f}(\lambda)}
+  \eq
+  \overline{0}
+  \eq
+  0.
+  \]
+\end{proof}
+
 \end{document}
