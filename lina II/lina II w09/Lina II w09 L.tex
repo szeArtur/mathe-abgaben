@@ -12,8 +12,9 @@
 
 
 
-
 \setlength{\parindent}{0pt}
+
+
 
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -26,14 +27,8 @@
 \newcommand{\equ}{\mathbb{\Leftrightarrow}}
 \newcommand{\eq}{\mathbb{\quad = \quad}}
 
-\newcommand{\limn}{\lim_{n \rightarrow \infty}}
-\newcommand{\toInf}[1]{\overset{#1 \rightarrow \infty}{\longrightarrow}}
-
-\newcommand{\movs}[2]{\overset{\text{\tiny $#1$}}{\quad #2 \quad}}
-\newcommand{\tovs}[2]{\overset{\text{\tiny (#1)}}{\quad #2 \quad}}
-\newcommand{\vect}[1]{\begin{pmatrix*}[c] #1 \end{pmatrix*}}
-\newcommand{\sect}[1]{\begin{psmallmatrix*}[c] #1 \end{psmallmatrix*}}
-\newcommand{\legs}[2]{\left(\begin{array}{#1}#2\end{array}\right)}
+\newcommand{\limto}[2]{\lim_{#1 \rightarrow #2}}
+\newcommand{\toinf}[1]{\overset{#1 \rightarrow \infty}{\longrightarrow}}
 
 \DeclareMathOperator{\RRe}{Re}
 \DeclareMathOperator{\IIm}{Im}
@@ -54,15 +49,6 @@
 \DeclareMathOperator{\vol}{vol}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\eigenraum}{Eig}
-
-%% https://texblog.net/latex-archive/maths/amsmath-matrix/
-\makeatletter
-\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
-  \hskip -\arraycolsep
-  \let\@ifnextchar\new@ifnextchar
-  \array{#1}}
-\makeatother
-
 
 
 
@@ -94,6 +80,8 @@ $\Mat(3, \RR)$:
     \end{array}
   \right)
 \]
+
+
 
 \subsection*{a)}
 
