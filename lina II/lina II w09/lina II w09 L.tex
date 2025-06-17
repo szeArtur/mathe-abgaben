@@ -33,6 +33,7 @@
 \DeclareMathOperator{\RRe}{Re}
 \DeclareMathOperator{\IIm}{Im}
 \DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\rg}{rg}
 \DeclareMathOperator{\LH}{L}
@@ -108,7 +109,17 @@ Die Abbildung $\varphi$ ist genau dann injektiv,
 wenn $0$ kein Eigenwert von $\varphi$ ist.
 
 \begin{proof}
+Es gilt:
 
+\[
+\begin{aligned}
+  &\text{$\varphi$ ist injektiv}\\
+  \qquad\Leftrightarrow\qquad
+  &\Kern(\varphi) = \Kern(\varphi - 0 \cdot \id_v) = \eigenraum(\varphi, 0) \neq 0 \\
+  \qquad\Leftrightarrow\qquad
+  &\text{$0$ ist kein Eigenwert von $v$}
+\end{aligned}
+\]
 \end{proof}
 
 \subsection*{b)}
@@ -119,7 +130,20 @@ $\lambda \neq 0$
 und $\lambda^{-1}$ ist Eigenwert von $\varphi^{-1}$.
 
 \begin{proof}
+  Sei $\lambda$ ein Eigenwert von $\varphi$
+  und $v \in \eigenraum(\varphi, \lambda)$ d.h.
+  $\varphi(v) = \lambda v$ und insbesondere $\varphi^{-1}(\lambda v) = v$.
+  Daraus folgt
 
+  \[
+  \varphi(\lambda^{-1} v)
+  = \lambda^{-1} \varphi(v)
+  = \lambda^{-1} \varphi(\varphi^{-1}(\lambda v))
+  = v.
+  \]
+
+  Das ist äquivalent zu $\varphi^{-1}(v) = \lambda^{-1} v$.
+  Also ist $\lambda^{-1}$ Eigenwert von $\varphi^{-1}$.
 \end{proof}
 
 \subsection*{c)}
@@ -132,6 +156,9 @@ so folgt
 $v \in \eigenraum(\tilde{p}(A), \tilde{p}(\lambda))$.
 
 \begin{proof}
+  Sei $p \in K[X]$
+  und
+  $v \in \eigenraum(A, \lambda)$,
 
 \end{proof}
 
