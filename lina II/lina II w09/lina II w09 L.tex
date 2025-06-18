@@ -115,7 +115,7 @@ Es gilt:
 \begin{aligned}
   &\text{$\varphi$ ist injektiv}\\
   \qquad\Leftrightarrow\qquad
-  &\Kern(\varphi) = \Kern(\varphi - 0 \cdot \id_v) = \eigenraum(\varphi, 0) \neq 0 \\
+  &\Kern(\varphi) = \Kern(\varphi - 0 \cdot \id_v) = \eigenraum(\varphi, 0) \neq \{0\}\\
   \qquad\Leftrightarrow\qquad
   &\text{$0$ ist kein Eigenwert von $v$}
 \end{aligned}
@@ -190,10 +190,48 @@ Eigenvektoren von $A$ zu den Eigenwerten
 $\lambda, \mu$.
 Dann ist
 $v_{\lambda} + v_{\mu}$
-wieder ein Eigenvektor,
-wenn --------------------
+wieder ein Eigenvektor, genau dann
+wenn $\lambda = \mu$.
 
 \begin{proof}
+  ''$\Leftarrow$''
+  Sei $\lambda = \mu$.
+  Dann ist $\varphi (v_{\lambda}) = \lambda \cdot v_{\lambda}$
+  und $\varphi (v_{\mu}) = \mu \cdot v_{\mu} = \lambda \cdot v_{\mu}$.
+  Daraus folgt
+
+  \[
+    \varphi (v_{\lambda} + v_{\mu})
+    =
+    \varphi (v_{\lambda}) + \varphi (v_{\mu})
+    =
+    \lambda \cdot v_{\lambda} + \lambda \cdot v_{\mu}
+    =
+    \lambda (v_{\lambda} + v_{\mu})
+  \]
+
+  Also ist $v_{\lambda} + v_{\mu}$ ein Eigenvektor von $A$.
+
+  \bigbreak
+
+  ''$\Rightarrow$''
+  Sei $(v_{\lambda} + v_{\mu}) \in \eigenraum (A, \xi)$
+  ein Eigenvektor von $A$ mit Eigenwert $\xi$.
+  Dann ist
+  \[
+    \lambda \cdot v_{\lambda} + \mu \cdot v_{\mu}
+    =
+    \varphi (v_{\lambda}) + \varphi (v_{\mu})
+    =
+    \varphi(v_{\lambda} + v_{\mu})
+    =
+    \xi \cdot (v_{\lambda} + v_{\mu})
+    =
+    \xi \cdot v_{\lambda} + \xi \cdot v_{\mu}
+  \]
+
+  Diese Linearkombination ist eindeutig bestimmt
+  also folgt $\xi = \lambda = \mu$.
 
 \end{proof}
 
