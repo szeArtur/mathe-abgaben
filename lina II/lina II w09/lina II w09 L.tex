@@ -158,8 +158,28 @@ $v \in \eigenraum(\tilde{p}(A), \tilde{p}(\lambda))$.
 \begin{proof}
   Sei $p \in K[X]$
   und
-  $v \in \eigenraum(A, \lambda)$,
+  $v \in \eigenraum(A, \lambda) = \Kern(A - \lambda \mathbbm{1}_3)$,
+  d.h.
 
+  \[
+  (A - \lambda \mathbbm{1}_3) \cdot v = 0
+  \qquad\text{also auch}\qquad
+  \tilde{p}((A - \lambda \mathbbm{1}_3) \cdot v) \;=\; \tilde{p}(0) \;=\; 0.
+  \]
+
+  Aufgrund von \textit{Lemma 7.25} folgt
+
+  \[
+  ((\tilde{p}(A) -\tilde{p}(\lambda) \mathbbm{1}_3) \cdot \tilde{p}(v))
+  \;=\;
+  \tilde{p}((A - \lambda \mathbbm{1}_3) \cdot v)
+  \;=\;
+  0.
+  \]
+
+  Also ist $\tilde{p}(v) \in \eigenraum(\tilde{p}(A), \tilde{p}(\lambda))$
+  und somit auch $(A - \lambda \mathbbm{1}_3) \cdot v = 0$,
+  da $v$ und $\tilde{p}(v)$ l.a. sind.
 \end{proof}
 
 \subsection*{d)}
