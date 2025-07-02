@@ -118,4 +118,43 @@
     
  \end{proof}
 
+ \newpage
+
+ \subsection*{b)}
+ Sei
+ $\xi := (1,1,1) \in \RR^3$.
+ Die Abbildung
+ $\beta : \RR^3 \times \RR^3 \to \RR,
+ \beta(v, w) := \langle v \times (\xi \times w), \xi \rangle$
+ ist eine symmetrische Bilinearform.
+
+ \begin{proof}
+    Die Abbildung ist eine Verkettung von
+    bilinearen Abbildung (Kreuzprodukt, Skalarprodukt)
+    und ist daher ebenfalls bilinear.
+    Wir zeigen nun Symmetrie.
+    Dazu nutzen wir \textit{a)} und die Symmetrie des Skalarprodukts:
+
+    \[
+    \begin{aligned}
+    \beta(v, w)
+    =
+    \langle v \times (\xi \times w), \xi \rangle
+    \overset{a)}{=}
+    \langle\langle v, w \rangle \xi - \langle v, \xi \rangle w, \xi\rangle
+    =
+    \langle v, w \rangle \langle \xi, \xi\rangle - \langle v, \xi \rangle \langle w, \xi \rangle
+    \\
+    =
+    \langle w, v \rangle \langle \xi, \xi\rangle - \langle w, \xi \rangle \langle v, \xi \rangle   
+    =
+    \langle\langle w, v \rangle \xi - \langle w, \xi \rangle v, \xi\rangle
+    \overset{a)}{=}
+    \langle w \times (\xi \times v), \xi \rangle
+    =
+    \beta(w, v).
+    \end{aligned}
+    \]
+ \end{proof}
+
 \end{document}
