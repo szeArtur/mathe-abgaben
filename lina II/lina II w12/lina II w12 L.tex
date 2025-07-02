@@ -57,7 +57,7 @@
 
 \begin{document}
 \maketitle
-%\newpage
+\newpage
 
 \section*{Aufgabe 1}
 
@@ -118,7 +118,6 @@
     
  \end{proof}
 
- \newpage
 
  \subsection*{b)}
  Sei
@@ -198,7 +197,7 @@ Es gilt $\Mat(n,K) = \Mat^+(n, K) \oplus \Mat^-(n, K)$.
     ist $\Mat(n,K) \supseteq \Mat^+(n, K) \oplus \Mat^-(n, K)$.
 
     Wir zeigen ''$\subseteq$''.
-    
+
     Sei $M \in \Mat(n,K)$ beliebig, dann gilt für passende
     $A \in \Mat^+(n,K), B \in \Mat^-(n,K)$:
     $M = A+B$, denn für alle
@@ -234,9 +233,72 @@ Es gilt $\Mat(n,K) = \Mat^+(n, K) \oplus \Mat^-(n, K)$.
         1 & 1 \\
         1 & -1
     \end{psmallmatrix} = -2 \neq 0$
-    hat das LGS für alle $i,j$ nur eine Lösung,
+    hat das LGS für alle $i,j$ genau eine Lösung,
     d.h. $A$ und $B$ sind eindeutig bestimmt.
-    Somit gilt $\Mat(n,K) \subseteq \Mat^+(n, K) \oplus \Mat^-(n, K)$.
+    Also gilt $\Mat(n,K) \subseteq \Mat^+(n, K) \oplus \Mat^-(n, K)$
+    und es folgt Gleichheit.
+\end{proof}
+
+\subsection*{b)}
+
+Sei $\beta : K^m \times K^n \to K$ eine Bilinearform. Wir definieren
+$M(\beta) \in \Mat(m \times n, K )$ durch $M(\beta)i j := \beta(e_i , e_j )$.
+Für alle $x \in K^m , y \in K^n$ gilt $\beta(x, y) = x^t \cdot M(\beta) \cdot y$.
+
+\begin{proof}
+    Es gilt aufgrund der Biliniarität von $\beta$:
+
+    \[
+    \begin{aligned}
+        x^t \cdot M(\beta) \cdot y
+        =
+        \sum_{i=1}^{m} x_i \sum_{j=1}^{n} y_j \beta(e_i,e_j)
+        \overset{bilin.}{=}
+        \sum_{i=1}^{m} x_i \beta(e_i,\sum_{j=1}^{n} y_j e_j)
+        \overset{bilin.}{=}
+        \beta(\sum_{i=1}^{m} x_i e_i,\sum_{j=1}^{n} y_j e_j)
+        =
+        \beta(x, y)
+    \end{aligned}
+    \]
+\end{proof}
+
+\newpage
+
+Die Aussage
+''\textit{Sind $M, M' \in \Mat(n, K)$
+und gilt für alle $x \in K^n : x^t \cdot M \cdot x = x^t \cdot M' \cdot x$,
+so folgt $M = M'$.''}
+ist im Allgemeinen falsch.
+
+\begin{proof}
+    Seien $x \in K^n := \RR^2$ und
+    $
+    M := \begin{pmatrix}
+        1 & 1 \\ -1 & 1
+    \end{pmatrix}.
+    $
+    Dann ist
+
+    \[
+    \begin{aligned}
+        x^t \cdot M \cdot x
+        \eq&
+        1 \cdot x_1 x_1 +
+        1 \cdot x_1 x_2 +
+        (-1) \cdot x_2 x_1 +
+        1 \cdot x_2 x_2\\
+        \eq&
+        1 \cdot x_1 x_1 +
+        (-1) \cdot x_1 x_2 +
+        1 \cdot x_2 x_1 +
+        1 \cdot x_2 x_2 \\
+        \eq&
+        x^t \cdot M^t \cdot x
+    \end{aligned}
+    \]
+
+    aber $M \neq M^t$. Die Aussage ist wiederlegt.
 \end{proof}
 
 \end{document}
