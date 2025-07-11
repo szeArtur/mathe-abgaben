@@ -162,6 +162,82 @@ Wir berechnen
 .
 \]
 
+\newpage
+
+\subsection*{c)}
+
+Wir bestimmen die darstellende Matrix
+$ A := M^B_{B_0}(\Delta_h) $
+.
+Wir berechnen zunächst
+
+\[
+\left( \Delta_h(g_0) \right)(x)
+=
+\frac{g_0(x + h) - g_0(x)}{h}
+=
+\frac{1 - 1}{h}
+=
+0.
+\]
+
+Also ist
+$\Delta_h(g_0) = 0f_0 + 0f_1 + 0f_2 + 0f_3$.
+Wir berechnen
+
+\[
+\left( \Delta_h(g_1) \right)(x)
+=
+\frac{g_1(x + h) - g_1(x)}{h}
+=
+\frac{x + h - 1 - x + 1}{h}
+=
+1
+\]
+
+Also ist 
+$ \Delta_h(g_1) = 1f_0 + 0f_1 + 0f_2 + 0f_3 $.
+Wir berechnen
+
+\[
+\left( \Delta_h(g_1) \right)(x)
+=
+\frac{g_2(x + h) - g_2(x)}{h}
+=
+\frac{(x + h)^2 - x^2}{h}
+=
+2x + h
+\]
+
+Also ist
+$ \Delta_h(g_2) = hf_0 + 2f_1 + 0f_2 + 0f_3 $.
+Wir berechnen
+
+\[
+\left( \Delta_h(g_3) \right)(x)
+=
+\frac{g_3(x + h) - g_3(x)}{h}
+=
+\frac{(x + h)^3 - (x + h)^2 - x^3 + x^2}{h}
+=
+x^3 + 3x^2 + 3xh + h^2 - h
+\]
+
+Also ist
+$ \Delta_h(g_3) = (h^2 - h)f_0 +(2h)f_1 + 3f_2 + 1f_3 $.
+Wir bilden daraus die darstellende Matrix
+
+\[
+A =
+\begin{pmatrix}
+ 0 & 1 & h & h^2 - h \\
+ 0 & 0 & 2 & 3h \\
+ 0 & 0 & 0 & 3 \\
+ 0 & 0 & 0 & 1
+\end{pmatrix}.
+\]
+
+
 
 
 
