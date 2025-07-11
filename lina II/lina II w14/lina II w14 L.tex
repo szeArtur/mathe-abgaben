@@ -1,0 +1,107 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx, amsmath, amsthm, amssymb, mathtools, enumerate, bbm, graphicx}
+\usepackage{stmaryrd}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+
+\title{Lineare Algebra II (LA) Übungsblatt 14}
+\author{Erik Achilles, Alexandra Dittmar, Artur Szeczinowski}
+\date{Juli 2025}
+
+
+
+\setlength{\parindent}{0pt}
+
+
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\CC}{\mathbb{C}}
+
+\newcommand{\imp}{\mathbb{\Rightarrow}}
+\newcommand{\equ}{\mathbb{\Leftrightarrow}}
+\newcommand{\eq}{\mathbb{\quad = \quad}}
+
+\newcommand{\limto}[2]{\lim_{#1 \rightarrow #2}}
+\newcommand{\toinf}[1]{\overset{#1 \rightarrow \infty}{\longrightarrow}}
+
+\DeclareMathOperator{\RRe}{Re}
+\DeclareMathOperator{\IIm}{Im}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\LH}{L}
+\DeclareMathOperator{\Bas}{Bas}
+\DeclareMathOperator{\Kern}{ker}
+\DeclareMathOperator{\Abb}{Abb}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\Konv}{Konv}
+\DeclareMathOperator{\Poly}{Poly}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\eigenraum}{Eig}
+
+
+\begin{document}
+\section*{Aufgabe 2}
+
+Wir definieren
+$g_j \in \Poly^3(\RR, \RR)$
+durch
+
+\[
+g_0(x) : = 1,
+\qquad
+g_1(x) : = x - 1,
+\qquad
+g_2(x) : = x^2,
+\qquad
+g_3(x) : = x^3 - x^2.
+\]
+
+Weiter definieren wir die Basen
+$B_0 : = (f_0, f_1, f_2, f_3)$
+und
+$B : = (g_0, g_1, g_2, g_3)$
+von
+$\Poly^3(\RR, \RR)$
+und
+$\Psi_B, \Psi_{B_0}$
+die dazugehörigen Koordinatenisomorphismen.
+Sei
+$h > 0$.
+Wir definieren die Abbildung
+
+\[
+\Delta_h : \Poly^3(\RR, \RR) \to \Poly^3(\RR, \RR),
+\quad
+(\Delta_h(f))(x) : = \frac{f(x + h) - f(x)}{h}.
+\]
+
+\subsection*{a)}
+
+Die Abbildung
+$\Delta_h$
+ist linear.
+
+\begin{proof}
+    Seien
+    $p_1, p_2 \in \Poly^3(\RR,\RR), \lambda \in \RR$
+    beliebig.
+    Dann gilt
+\end{proof}
+
+
+\end{document}
