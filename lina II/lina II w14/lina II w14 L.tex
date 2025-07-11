@@ -100,7 +100,30 @@ ist linear.
     Seien
     $p_1, p_2 \in \Poly^3(\RR,\RR), \lambda \in \RR$
     beliebig.
-    Dann gilt
+    Dann gilt für alle
+    $ x $:
+    
+    \[
+    \begin{aligned}
+        (\Delta_h (\lambda(p_1 + p_2)))(x)
+        &= 
+        \frac{(\lambda(p_1 + p_2))(x + h) - (\lambda(p_1 + p_2))(x)}{h}
+        \\ &=
+        \lambda
+        \left( \frac{p_1(x + h) - p_1(x)}{h}
+        +
+        \frac{p_2(x + h) - p_2(x)}{h} \right)
+        \\ &= 
+        \lambda
+        \left( (\Delta_h (p_1))(x)
+        +
+        (\Delta_h (p_2))(x) \right)
+    \end{aligned}
+    \]
+    
+    denn 
+    $ \Poly^3(\RR,\RR) \subset \GL(\RR,\RR) $.
+    
 \end{proof}
 
 
