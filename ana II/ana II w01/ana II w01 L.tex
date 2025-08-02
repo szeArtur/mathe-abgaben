@@ -32,6 +32,7 @@
 \DeclareMathOperator{\Fin}{Fin}
 \DeclareMathOperator{\Konv}{Konv}
 \DeclareMathOperator{\Poly}{Poly}
+\DeclareMathOperator{\arcosh}{arcosh}
 
 \newcommand{\limn}{\lim_{n \rightarrow \infty}}
 \newcommand{\toInf}[1]{\overset{#1 \rightarrow \infty}{\longrightarrow}}
@@ -48,6 +49,7 @@
 \begin{document}
 
 \maketitle
+\vfill
 
 \section*{Aufgabe 1.2}
 
@@ -162,6 +164,43 @@ Daraus folgt, dass
 $ \cosh(x) $ streng monoton fallend ist.
 Somit hat die Funktion kein globales Maximum und ein globales Minimum an der Stelle
 $ x = 0 $.
+
+\newpage
+
+\subsection*{c)}
+Der Wertebereich der Funktion ist
+$ \cosh(\RR) = [1, \infty) $.
+\begin{proof}
+    Aus dem globalen Minimum
+    $ \cosh(0) = \frac{e^0 + e^0}{2} = 1 $
+    und dem Monotonieverhalten folgern wir, dass
+    $ \cosh(\RR) \subseteq [1,\infty] $.
+    Wir zeigen ''$\supseteq$''.
+    Sei ein beliebiges
+    $ 1 \leq y < \infty $,
+    dann gibt es ein
+    $ X \in \RR $
+    mit
+    $$ \cosh(0) = 1 \leq y < \cosh(X). $$
+    Da 
+    $ \cosh $
+    differenzierbar also insbesondere stetig ist, gibt es nach ZWS ein
+    $ x \in [0,X] \subset \RR $
+    mit
+    $ \cosh(x) = y $.
+    Somit gilt
+    $ \cosh(\RR) = [1, \infty) $.
+\end{proof}
+
+\subsection*{d)}
+
+Die Funktion
+$ \cosh $
+ist im Intervall
+$ [0,\infty] $
+stetig und streng monoton wachsend.
+Also ist sie bijektiv  in diesem Intervall und hat eine Umkehrfunktion
+$ \arcosh $.
 
 
 \end{document}
