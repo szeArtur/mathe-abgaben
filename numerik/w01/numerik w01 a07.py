@@ -1,22 +1,46 @@
 import math
 
-n = int(input("Geben Sie eine natürliche Zahl an:"))
-counter = 0
+def finde_zerlegungen(n):
+    zerlegungen = []
 
-for a in range(1, math.floor(n ** (1/3)) + 1):
-    counter += 1
+    # wir nutzen die variable d := (b-a) sodass n = a * b * (b-a) = a * (a+d) * d.
+    # die symmetrie dieser schreibweise nutzen wir um für jede a-d-kombination
+    # direkt zwei zerlegungen zu finden, indem wir die werte von a und d tauschen
+    for a in range(1, math.floor(n ** (1/3)) + 1):
+        if n % a != 0:
+            continue
 
-    if n % a != 0:
-        continue
+        d = (((a**4) + (4 * a * n)) ** (1/2) - (a**2)) / (2 * a)
 
-    wurzel_n_a = (n / a) ** (1 / 2)
-    d_min = max(a, wurzel_n_a - a + 1)
-
-    for d in range(math.floor(d_min), math.ceil(wurzel_n_a)):
-        counter += 1
-        if a * (a + d) * d == n:
-            print(f"{n} = {a} * {a + d} * ({a + d} - {a})")
-            print(f"{n} = {d} * {a + d} * ({a + d} - {d})")
+        if a > d:
             break
 
-print(f"{counter} steps")
+        if n % d != 0:
+            continue
+
+        if a * (a + d) * d == n:
+            d = int(d)
+            zerlegungen.append(f"{n} = {a} * {a + d} * ({a + d} - {a})")
+            if a != d:
+                zerlegungen.append(f"{n} = {d} * {a + d} * ({a + d} - {d})")
+    
+    return zerlegungen
+
+
+# =====================================================================================
+
+
+while True:
+    eingabe = input("Geben Sie eine natürliche Zahl an: ")
+    while not eingabe.isdigit():
+        eingabe = input("Inkorrekte Eingabe. Geben Sie eine natürliche Zahl an: ")
+
+    zerlegungen = finde_zerlegungen(int(eingabe))
+
+    if len(zerlegungen) == 0:
+        print(f"Keine Zerlegungen gefunden.")
+    else:
+        print(f"{len(zerlegungen)} Zerlegungen gefunden:")
+
+    for zerlegung in zerlegungen:
+        print(zerlegung)
