@@ -31,9 +31,9 @@ def finde_zerlegungen(n):
 
 
 while True:
-    eingabe = input("Geben Sie eine natürliche Zahl an: ")
+    eingabe = input("Geben Sie eine natürliche Zahl ein: ")
     while not eingabe.isdigit():
-        eingabe = input("Inkorrekte Eingabe. Geben Sie eine natürliche Zahl an: ")
+        eingabe = input("Ungültige Eingabe. Geben Sie eine natürliche Zahl ein: ")
 
     zerlegungen = finde_zerlegungen(int(eingabe))
 
