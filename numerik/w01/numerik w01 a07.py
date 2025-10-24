@@ -1,12 +1,10 @@
-import math
-
 def finde_zerlegungen(n):
     zerlegungen = []
 
     # wir nutzen die variable d := (b-a) sodass n = a * b * (b-a) = a * (a+d) * d.
     # die symmetrie dieser schreibweise nutzen wir um für jede a-d-kombination
     # direkt zwei zerlegungen zu finden, indem wir die werte von a und d tauschen
-    for a in range(1, math.floor(n ** (1/3)) + 1):
+    for a in range(1, int(n ** (1/3)) + 1):
         if n % a != 0:
             continue
 
@@ -14,20 +12,16 @@ def finde_zerlegungen(n):
 
         if a > d:
             break
-
+        
+        d = int(d)
         if n % d != 0:
             continue
 
-        if a * (a + d) * d == n:
-            d = int(d)
-            zerlegungen.append(f"{n} = {a} * {a + d} * ({a + d} - {a})")
-            if a != d:
-                zerlegungen.append(f"{n} = {d} * {a + d} * ({a + d} - {d})")
+        zerlegungen.append(f"{n} = {a} * {a + d} * ({a + d} - {a})")
+        if a != d:
+            zerlegungen.append(f"{n} = {d} * {a + d} * ({a + d} - {d})")
     
     return zerlegungen
-
-
-# =====================================================================================
 
 
 while True:
